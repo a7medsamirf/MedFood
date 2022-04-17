@@ -131,7 +131,7 @@ a{
 /*--------------------------------------------------
   [2. Theme color   ]
 --------------------------------------------------*/
-/*========== Dark ==========*/
+/*========== theme Dark ==========*/
 .theme--dark.v-application {
   background: var(--darkbody) !important;
   color: #FFFFFF;
@@ -162,11 +162,29 @@ a{
       font-weight: 500;
     }
   }
-
+  .v-card .blog-description {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #6377bb;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.v-btn--is-elevated {
+  box-shadow: 0 2px 51px 0px rgb(255 121 0 / 13%) !important;
+}
+.v-navigation-drawer {
+  background-color: rgba(0, 30, 38, 0.8) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(12px);
+}
 }
 
 
-/*========== light ==========*/
+/*========== theme light ==========*/
 .theme--light.v-application
 {
   .text-color-default{
@@ -180,7 +198,18 @@ a{
 
   }
 
+  .v-btn--is-elevated {
+    box-shadow: 0 2px 51px 0px rgb(255 121 0 / 13%) !important;
+  }
+
+  .v-card {
+    box-shadow: $box-shadow;
+    border-radius: 10px !important;
+  }
+  
 }
+
+
 
 
 
@@ -359,34 +388,6 @@ nav.v-navigation-drawer.v-navigation-drawer--fixed {
 }
 
 
-/*========== theme light  ==========*/
-.theme--light.v-application
-{
-  .v-btn--is-elevated {
-    box-shadow: 0 2px 51px 0px rgb(255 121 0 / 13%) !important;
-  }
-
-}
-
-/*========== theme dark  ==========*/
-
-.v-application.theme--dark
-{
-  .v-card .blog-description {
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #6377bb;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-.v-btn--is-elevated {
-  box-shadow: 0 2px 51px 0px rgb(255 121 0 / 13%) !important;
-}
-}
 
 
 
@@ -398,11 +399,7 @@ nav.v-navigation-drawer.v-navigation-drawer--fixed {
 
 /* ===== Start ScrollToTop ===== */
 
-.theme--dark.v-navigation-drawer {
-  background-color: rgba(0, 30, 38, 0.8) !important;
-  box-shadow: none !important;
-  backdrop-filter: blur(12px);
-}
+
 
 .v-list .v-list-item {
   opacity: 0.7;
@@ -416,11 +413,6 @@ nav.v-navigation-drawer.v-navigation-drawer--fixed {
 
 .v-list .v-list-item--active {
   opacity: 1;
-}
-
-.theme--light.v-card {
-  box-shadow: 0 2px 6px 2px rgb(56 125 255 / 10%) !important;
-  border-radius: 10px !important;
 }
 
 

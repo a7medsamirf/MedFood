@@ -38,7 +38,7 @@ export default {
 <style  lang="scss">
 
 .banner-wrap {
-  background-image: url('static/images/hero-pattern.webp');
+  background-image: url('static/images/hero/1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;

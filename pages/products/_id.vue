@@ -39,7 +39,10 @@
           <v-col cols="12" md="6" class="align-self-center" >
 
               <v-spacer></v-spacer>
-
+            <v-card-title class="py-2 pa-0 text-md-h4 font-weight-bold">
+              {{ product.name }}
+              <v-spacer></v-spacer>
+            </v-card-title>
                 <v-rating
                   readonly
                   half-increments
@@ -51,15 +54,7 @@
                   size="20"
                 ></v-rating>
 
-            <v-card-title class="py-2 pa-0 text-md-h4 font-weight-bold">
-              {{ product.name }}
-              <v-spacer></v-spacer>
-              <span class="text-md-h6 primary--text" >{{ $formatMoney(product.price) }}</span>
-            </v-card-title>
-
-            <v-card-subtitle class="primary--text pb-3" >
-
-            </v-card-subtitle>
+              <h4 class="text-md-h6  primary--text"><span class="old-price">{{ $formatMoney(product.price) }}</span> {{ $formatMoney(product.salePrice) }}</h4>
 
             <p class="mt-5 mb-7">
               {{ product.description }}
@@ -178,5 +173,12 @@ export default {
 {
   position: relative;
   overflow: hidden;
+}
+
+.old-price
+{
+      color: #babbbc!important;
+    text-decoration: line-through;
+    margin-right: 6px;
 }
 </style>

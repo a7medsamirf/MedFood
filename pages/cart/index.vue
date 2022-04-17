@@ -28,7 +28,7 @@
                   <th>Delete</th>
                 </tr>
                 </thead>
-                <tbody  v-for="(c, i) in $store.state.cart.cart">
+                <tbody  v-for="(c, i) in $store.state.cart.cart" :key="c">
                 <tr :key="`cartItem${i}`">
                   <td>
                     <v-img

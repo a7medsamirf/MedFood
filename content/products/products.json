@@ -7,7 +7,7 @@
     "image": "1.webp",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, possimus temporibus reprehenderit molestiae, doloribus eos obcaecati expedita, voluptatibus commodi  suscipit aliquid fuga modi alias fugiat nostrum. Accusantium incidunt quae modi",
     "price": 50,
-    "salePrice": null,
+    "salePrice": 30,
     "ratings": 4.0,
     "discount": 20
   },
@@ -30,7 +30,7 @@
     "image": "3.webp",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, possimus temporibus reprehenderit molestiae, doloribus eos obcaecati expedita, voluptatibus commodi  suscipit aliquid fuga modi alias fugiat nostrum. Accusantium incidunt quae modi",
     "price": 80,
-    "salePrice": 75,
+    "salePrice": 55,
     "ratings": 4.5
   },
   {
@@ -41,7 +41,7 @@
     "image": "4.webp",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, possimus temporibus reprehenderit molestiae, doloribus eos obcaecati expedita, voluptatibus commodi  suscipit aliquid fuga modi alias fugiat nostrum. Accusantium incidunt quae modi",
     "price": 95,
-    "salePrice": null,
+    "salePrice": 60,
     "ratings": 4
   },
   {
