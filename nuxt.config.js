@@ -6,6 +6,7 @@ export default {
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+/*   router: { base: '/MedFood/' }, */
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -27,6 +28,8 @@ export default {
       },
     ]
   },
+
+ 
 
   loading: {
     color: 'primary',
@@ -72,16 +75,16 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     // https://go.nuxtjs.dev/sitemap
-    '@nuxtjs/sitemap',
-    "vue-sweetalert2/nuxt/no-css",
+/*     '@nuxtjs/sitemap',
+ */    "vue-sweetalert2/nuxt/no-css",
   ],
 
-  sitemap: {
+/*   sitemap: {
     hostname: global.siteUrl,
     routes() {
       return getRoutes();
     },
-  },
+  }, */
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308

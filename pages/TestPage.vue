@@ -12,7 +12,6 @@
           sm="12"
         >
           <v-card
-            :loading="loading"
             v-if="!data_loaded"
             class="food-card rounded-lg "
           >

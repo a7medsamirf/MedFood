@@ -21,7 +21,6 @@
                 v-model="search"
                 clearable
                    autocomplete="on"
-                  :loading="loading"
                 placeholder="Search Products"
                     solo-inverted
                 flat
