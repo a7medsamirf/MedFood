@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "name": "Silky Smooth Beats",
+    "onSale": false,
+    "tags": ["burger"],
+    "image": "1.webp",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, possimus temporibus reprehenderit molestiae, doloribus eos obcaecati expedita, voluptatibus commodi  suscipit aliquid fuga modi alias fugiat nostrum. Accusantium incidunt quae modi",
+    "price": 50,
+    "salePrice": null,
+    "ratings": 4.0,
+    "discount": 20
+  },
+  {
+    "id": 2,
+    "name": "Lady Luck Is Smiling",
+    "onSale": true,
+    "tags": ["burger"],
+    "image": "2.webp",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, possimus temporibus reprehenderit molestiae, doloribus eos obcaecati expedita, voluptatibus commodi  suscipit aliquid fuga modi alias fugiat nostrum. Accusantium incidunt quae modi",
+    "price": 63,
+    "salePrice": 50,
+    "ratings": 4.5
+  },
+  {
+    "id": 3,
+    "name": "Green Nike Zoom",
+    "onSale": true,
+    "tags": ["burger"],
+    "image": "3.webp",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, possimus temporibus reprehenderit molestiae, doloribus eos obcaecati expedita, voluptatibus commodi  suscipit aliquid fuga modi alias fugiat nostrum. Accusantium incidunt quae modi",
+    "price": 80,
+    "salePrice": 75,
+    "ratings": 4.5
+  },
+  {
+    "id": 4,
+    "name": "New Home Living Room Set",
+    "onSale": false,
+    "tags": ["burger"],
+    "image": "4.webp",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, possimus temporibus reprehenderit molestiae, doloribus eos obcaecati expedita, voluptatibus commodi  suscipit aliquid fuga modi alias fugiat nostrum. Accusantium incidunt quae modi",
+    "price": 95,
+    "salePrice": null,
+    "ratings": 4
+  },
+  {
+    "id": 5,
+    "name": "Classic Man Watch",
+    "onSale": true,
+    "tags": ["burger"],
+    "image": "5.webp",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, possimus temporibus reprehenderit molestiae, doloribus eos obcaecati expedita, voluptatibus commodi  suscipit aliquid fuga modi alias fugiat nostrum. Accusantium incidunt quae modi",
+    "price": 89,
+    "salePrice": 75,
+    "ratings": 3.5
+  },
+  {
+    "id": 6,
+    "name": "Classic Man Watch Green",
+    "onSale": true,
+    "tags": ["burger"],
+    "image": "6.webp",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, possimus temporibus reprehenderit molestiae, doloribus eos obcaecati expedita, voluptatibus commodi  suscipit aliquid fuga modi alias fugiat nostrum. Accusantium incidunt quae modi",
+    "price": 150,
+    "salePrice": 75,
+    "ratings": 4.5
+  }
+]
