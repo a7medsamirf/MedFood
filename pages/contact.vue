@@ -13,8 +13,11 @@
       <v-container>
         <v-row>
           <v-col cols="12" lg="3" md="6"  v-for="(contact, i) in contacts" :key="i">
-            <v-card
-              class="mx-auto text-center rounded-xl"
+            <v-hover>
+      <v-card
+            outlined
+            elevation-0
+              class="mx-auto text-center rounded-xl  contact-box "
             >
               <v-card-text>
                 <v-list-item-avatar
@@ -32,15 +35,17 @@
                 <p>{{ contact.text }}</p>
               </v-card-text>
             </v-card>
+            </v-hover>
+      
           </v-col>
         </v-row>
 
 
-      <v-row class="py-16" align="center" justify="center">
+      <v-row class="pt-20" align="center" justify="center">
           <v-col cols="12" md="12" class="px-sm-5 px-0">
               <div class="text-center">
               <h4 class="ma-3 primary--text ">Get In Touch</h4>
-              <h2 class="text-color-default ma-3 Welcome-text-title">Send Us Message</h2>
+              <h3 class="text-color-default ma-3 Welcome-text-title">Send Us Message</h3>
             </div>
           </v-col>
           <v-col cols="12" md="6" class="px-sm-5 px-0">
@@ -77,6 +82,7 @@
               </v-col>
               <v-col cols="12" md="12" class="py-0">
                 <v-text-field
+                class="mb-0 rounded-lg"
                   v-model="name"
                   :rules="nameRules"
                   label="Subject"
@@ -87,6 +93,7 @@
 
               <v-col cols="12" md="12" class="py-0">
                 <v-textarea
+                class="mb-0 rounded-lg"
                   name="input-7-1"
                   label="Write your message here..."
                   outlined
@@ -138,9 +145,34 @@ export default {
 </script>
 
 <style lang="scss">
-.row .col-md-4 .v-card:nth-last-child(2)
+.v-card:nth-last-child(2)
 {
   background: #000 !important;
 }
+.contact-box
+{
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &:hover
+{
+    background: #ff8e28;
+    color: #fff !important;
+    transition: all 0.5s ease-in-out;
+  
+}
+  &:hover .v-avatar
+  {
+    background: #ffff !important;
+    transition: all 0.5s ease-in-out;
+  }
+   &:hover .v-icon
+   {
+     color: #ff8e28 !important;
+   }
 
+}
+
+.theme--light.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot fieldset {
+    color: #6f6f874a;
+}
 </style>

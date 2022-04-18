@@ -60,6 +60,7 @@ Style Index
   --darkbody: #001e26;
   --lightsurface: #fff;
   --vs-primary: 26, 92, 255;
+  --p-darkcolor: #a9a9a9
 }
 
 body {
@@ -71,13 +72,19 @@ body {
 
 h1 {
   line-height: 100%;
-  font-size: 72px;
+  font-size: $h1-font-size;
   letter-spacing: -3px;
 }
 
 h2 {
   font-size: $h2-font-size;
-  font-weight: $font-medium;
+  font-weight: $font-bold;
+  text-transform: capitalize;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-weight: $font-regular;
   text-transform: capitalize;
 }
 
@@ -98,8 +105,8 @@ h6 {
 
 p {
   color: #6F6F87;
-  font-size: 18px;
-  line-height: 32px;
+  font-size: 1rem;
+  line-height: 25px;
   font-family: $font-family;
   font-weight: $font-regular;
 
@@ -114,12 +121,12 @@ a{
 }
 .py-20
 {
-  padding-top: 100px !important;
-  padding-bottom: 100px !important;
+  padding-top: 6.25rem !important;
+  padding-bottom: 6.25rem !important;
 }
 .pt-20
 {
-  padding-top: 100px !important; ;
+  padding-top: 6.25rem !important; ;
 }
 
 /*--------------------------------------------------
@@ -175,7 +182,10 @@ a{
   box-shadow: none !important;
   backdrop-filter: blur(12px);
 }
-
+p
+{
+  color: var(--p-darkcolor) !important;
+}
 }
 
 
@@ -197,14 +207,12 @@ a{
     box-shadow: 0 2px 51px 0px rgb(255 121 0 / 13%) !important;
   }
 
-  .v-card {
-    box-shadow: $box-shadow;
-    border-radius: 10px !important;
-  }
-  
+
 }
 
-
+.theme--light.v-sheet--outlined {
+  border: thin solid #cfcfcf4a !important;
+}
 
 
 
@@ -226,6 +234,51 @@ a{
 .v-application {
   font-family: $font-family
 }
+
+/*--------------------------------------------------
+  [3. Breadcrumb widget ]
+--------------------------------------------------*/
+
+.breadcrumb {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/09/breadcrumb1.jpg);
+  background-size: cover;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+
+  .col-full {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .breadcrumb-heading {
+    color: #1E1D23;
+    max-width: 850px;
+    padding: 0 15px;
+    font-size: 52px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+  .breadcrumb-separator {
+    color: #1E1D23;
+  }
+  .col-full::before,
+  .col-full::after {
+    content: '';
+    display: table;
+  }
+
+  .woocommerce-breadcrumb {
+    text-align: center;
+  }
+}
+
+
 
 /*====================
   widget
@@ -341,45 +394,6 @@ nav.v-navigation-drawer.v-navigation-drawer--fixed {
   font-weight: var(--font-regular);
   font-size: 16px;
   line-height: 24px;
-}
-
-.breadcrumb {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url(https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/09/breadcrumb1.jpg);
-  background-size: cover;
-  min-height: 240px;
-  display: flex;
-  align-items: center;
-
-  .col-full {
-    max-width: 1320px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .breadcrumb-heading {
-    color: #1E1D23;
-    max-width: 850px;
-    padding: 0 15px;
-    font-size: 52px;
-    margin-bottom: 10px;
-    text-transform: capitalize;
-  }
-  .breadcrumb-separator {
-    color: #1E1D23;
-  }
-  .col-full::before,
-  .col-full::after {
-    content: '';
-    display: table;
-  }
-
-  .woocommerce-breadcrumb {
-    text-align: center;
-  }
 }
 
 

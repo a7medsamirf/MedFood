@@ -16,7 +16,7 @@
           </v-col>
           <v-col cols="12" md="6" class="px-sm-5 px-0">
             <div class="text">
-              <h4 class="ma-3 default--text">Welcome</h4>
+              <h4 class="ma-3 primary--text">Welcome</h4>
               <h2 class="text-color-default ma-3 Welcome-text-title">We are doing more than
                 you expect
               </h2>

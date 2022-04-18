@@ -8,7 +8,7 @@
           <span class="breadcrumb-separator"> / {{PageTitle}}</span></nav>
       </div>
     </div>
-    <div class="inner d-flex align-center justify-center py-16">
+    <div class="inner d-flex align-center justify-center py-20">
       <v-container>
         <v-row>
           <v-col cols="12" md="8">
@@ -25,6 +25,8 @@
                 >
                 </v-skeleton-loader>
                 <v-card
+                   outlined
+                   elevation-0
                   v-if="!data_loaded"
                 >
                   <NuxtLink  :to="{ name: 'blog-slug', params: { slug: article.slug } }">
@@ -59,7 +61,7 @@
                     <NuxtLink  :to="{ name: 'blog-slug', params: { slug: article.slug } }">
                       <v-card-title class="py-2 pa-0 font-weight-bold">{{ article.title }}</v-card-title>
                     </NuxtLink>
-                    <v-card-text class="py-1 pa-0 ">{{ article.description }}</v-card-text>
+                    <v-card-text class="py-1 pa-0 "><p>{{ article.description }}</p></v-card-text>
 
                     <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
                       <v-btn :to="{ name: 'blog-slug', params: { slug: article.slug } }"  large color="primary"
@@ -178,11 +180,6 @@ export default {
 <style lang="scss">
   .v-card {
     overflow: hidden;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
-    border-radius: 10px;
-    color: #000;
-    border: none;
-
     .blog-description {
       margin-top: 0;
       margin-bottom: 0;
@@ -222,10 +219,6 @@ transform: rotate(15deg) scale(1.4);
   }
   .v-card {
     overflow: hidden;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 10%) !important;
-    border-radius: 10px;
-    color: #000;
-    border: none;
 }
 }
 

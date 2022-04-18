@@ -39,8 +39,9 @@
           <v-col cols="12" md="6" class="align-self-center" >
 
               <v-spacer></v-spacer>
-            <v-card-title class="py-2 pa-0 text-md-h4 font-weight-bold">
-              {{ product.name }}
+            <v-card-title class="py-2 pa-0 font-weight-bold text-color-default">
+              <h3>{{ product.name }}</h3>
+              
               <v-spacer></v-spacer>
             </v-card-title>
                 <v-rating

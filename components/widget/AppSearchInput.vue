@@ -11,6 +11,7 @@
         flat
         clearable
         color="primary"
+
       >
        <v-icon
          slot="append"

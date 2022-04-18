@@ -141,10 +141,7 @@ export default {
   }
   .v-card {
     overflow: hidden;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 10%) !important;
-    border-radius: 10px;
-    color: #000;
-    border: none;
+
   }
 }
 .v-card {

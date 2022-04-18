@@ -14,12 +14,12 @@ $font-family: 'Josefin Sans', sans-serif !important;
 $font-family-Rubik: 'Rubik', sans-serif !important;
 
 // font-size
-$h1-font-size: 50px;
-$h2-font-size: 42px;
-$h3-font-size: 30px;
-$h4-font-size: 25px;
-$h5-font-size: 20px;
-$h6-font-size: 15px;
+$h1-font-size: 3.5rem;
+$h2-font-size: 3rem;
+$h3-font-size: 2.5rem;
+$h4-font-size: 2rem;
+$h5-font-size: 1.5rem;
+$h6-font-size: 1rem;
 // font-size
 
 // Font weight
@@ -48,7 +48,8 @@ $grid-breakpoints: (
 $unit: 8px;
 
 // Spacing unit
-$py-20: 100px;
+$py-20: 6.25rem;
+
 $spacing1: 1 * $unit; //8
 $spacing2: 2 * $unit; //16
 $spacing3: 3 * $unit; // 24
