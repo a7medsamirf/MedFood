@@ -7,9 +7,7 @@
               <div class="text-center">
               <h4 class="ma-3 default--text">Reason</h4>
               <h2 class="primary--text ma-3 Welcome-text-title">Why Choose Us?</h2>
-
             </div>
-
           </v-col>
           <v-col cols="12" md="6" class="px-sm-5 px-0">
 

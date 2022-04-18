@@ -1,7 +1,7 @@
 <template>
 <div class="pt-20">
     <v-row>
-    <v-col lg="4" v-for="support in supports" :key="support">
+    <v-col lg="4" v-for="(support, index) in supports" :key="index">
   <v-card
     class="mx-auto py-3"
   >

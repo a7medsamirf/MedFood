@@ -138,13 +138,7 @@ export default {
         font-weight: $font-medium;
       }
 
-      tbody {
-        tr {
-          margin: 20px 5px;
-          background-color: #fbfbfb !important;
-          cursor: pointer !important;
-        }
-      }
+ 
 
       tbody tr td {
         border: none !important;
@@ -152,6 +146,26 @@ export default {
       }
     }
   }
+}
+.theme--light.v-application
+{
+     tbody {
+        tr {
+          margin: 20px 5px;
+          background-color: #fbfbfb !important;
+          cursor: pointer !important;
+        }
+      }
+}
+.theme--dark.v-application
+{
+       tbody {
+        tr {
+          margin: 20px 5px;
+          background-color: #012a35 !important;
+          cursor: pointer !important;
+        }
+      }
 }
 
 </style>

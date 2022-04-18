@@ -102,7 +102,7 @@
             </u-animate-container>
 
           </v-col>
-
+  <div class="running-cycle"><div></div></div>
         </v-row>
       </v-container>
 
@@ -179,4 +179,53 @@ export default {
     opacity: 0 !important;
   }
 }
+
+.running-cycle div {
+    background-image: url(static/images/delivery-boy.svg);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 150px;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    animation: running-anim 20s linear infinite;
+    z-index: 1;
+}
+.running-cycle {
+    overflow: hidden;
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+@-moz-keyframes running-anim {
+    0% {
+        left: -30%
+    }
+    100% {
+        left: 100%
+    }
+}
+
+@-webkit-keyframes running-anim {
+    0% {
+        left: -30%
+    }
+    100% {
+        left: 100%
+    }
+}
+
+@keyframes running-anim {
+    0% {
+        left: -30%
+    }
+    100% {
+        left: 100%
+    }
+}
+
 </style>

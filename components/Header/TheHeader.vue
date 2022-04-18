@@ -1,8 +1,34 @@
 <template>
   <div>
     <!---------- Start Navigation Drawer ---------->
-      <sidebar app  :clipped="clipped" :drawer="drawer"  />
+   <!--    <sidebar app  :clipped="clipped" :drawer="drawer"  /> -->
     <!---------- End Navigation Drawer ---------->
+
+  <!---------- Start Navigation Drawer ---------->
+  <v-navigation-drawer class="hidden-md-and-up" v-model="drawer" :clipped="clipped" fixed>
+    <v-list-item class="pa-3">
+      <div class="logo">
+        <NuxtLink to="/">
+          <v-img max-height="50" max-width="160" :src="require('static/images/logo.png')" ></v-img>
+        </NuxtLink>
+      </div>
+      <v-spacer></v-spacer>
+      <v-btn class="close-icon" icon @click="drawer = !drawer"> <v-icon>mdi-close</v-icon></v-btn>
+    </v-list-item>
+
+    <v-list>
+      <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
+        <v-list-item-action>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title v-text="item.title" />
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
+  <!---------- End Navigation Drawer ---------->
+
    <!---------- Start App Bar ---------->
     <v-app-bar app height="85px" fixed>
       <v-container class="pa-0 fill-height">
@@ -126,9 +152,8 @@
 <script>
 import ThemeSwitcher from "~/components/Header/ThemeSwitcher";
 import NavSearch from "~/components/Header/NavSearch";
-import Sidebar from "~/components/Header/Sidebar";
 export default {
-  components: {Sidebar, ThemeSwitcher, NavSearch},
+  components: { ThemeSwitcher, NavSearch},
   data () {
     return {
       clipped: false,
