@@ -13,7 +13,9 @@
       <v-container>
         <v-row>
           <v-col cols="12" lg="3" md="6"  v-for="(contact, i) in contacts" :key="i">
-            <v-hover>
+              <u-animate-container>
+              <u-animate mode="out-in" name="fadeInRightBig" delay="1s" duration="1s" :iteration="1" :offset="0" animateClass="animated" :begin="false">
+               <v-hover>
       <v-card
             outlined
             elevation-0
@@ -36,23 +38,25 @@
               </v-card-text>
             </v-card>
             </v-hover>
+              </u-animate>
+            </u-animate-container>
+
+        
       
           </v-col>
-        </v-row>
 
-
-      <v-row class="pt-20" align="center" justify="center">
-          <v-col cols="12" md="12" class="px-sm-5 px-0">
+          <v-col cols="12" md="12" class="pt-20 mb-16">
               <div class="text-center">
-              <h4 class="ma-3 primary--text ">Get In Touch</h4>
+              <h5 class="ma-3 primary--text ">Get In Touch</h5>
               <h3 class="text-color-default ma-3 Welcome-text-title">Send Us Message</h3>
+               <v-img
+                  :src="require(`~/static/images/section_delimiter.png`)"
+                  height="25"
+                  contain
+                ></v-img>
             </div>
           </v-col>
-          <v-col cols="12" md="6" class="px-sm-5 px-0">
-          </v-col>
-        </v-row>
 
-        <v-row>
           <v-col class="py-0" cols="12" lg="6" md="6">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55178.81412767334!2d31.267391365292262!3d30.060598109774542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2z2KfZhNmC2KfZh9ix2KnYjCDZhdit2KfZgdi42Kkg2KfZhNmC2KfZh9ix2KnigKw!5e1!3m2!1sar!2seg!4v1650283896511!5m2!1sar!2seg"
                     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
