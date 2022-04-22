@@ -181,7 +181,7 @@ export default {
 }
 
 .running-cycle div {
-    background-image: url(static/images/delivery-boy.svg);
+    background-image: url(static/images/delivery-boy.png);
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: 150px;

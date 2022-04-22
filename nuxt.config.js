@@ -97,7 +97,7 @@ export default {
       baseURL: process.env.BASE_URL
     }
   },
-  
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {

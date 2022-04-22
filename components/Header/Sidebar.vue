@@ -1,29 +1,58 @@
 <template>
-  <!---------- Start Navigation Drawer ---------->
-  <v-navigation-drawer class="hidden-md-and-up" v-model="drawer" :clipped="clipped" fixed>
-    <v-list-item class="pa-3">
-      <div class="logo">
-        <NuxtLink to="/">
-          <v-img max-height="50" max-width="160" :src="require('static/images/logo.png')" ></v-img>
-        </NuxtLink>
+  <div>
+    <!---------- Start Navigation Drawer ---------->
+    <v-list nav dense >
+      <div v-for="(link, i) in links" :key="i">
+
+        <v-list-item
+          v-if="!link.subLinks"
+          :to="link.to"
+          avatar
+          class="v-list-item"
+        >
+          <v-list-item-icon>
+            <v-icon>{{ link.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-title v-text="link.title" />
+        </v-list-item>
+
+        <v-list-group
+          v-else
+          :key="link.title"
+          :prepend-icon="link.icon"
+          :value="false"
+        >
+          <template v-slot:activator>
+            <v-list-item-title>{{ link.title }}</v-list-item-title>
+          </template>
+
+          <v-list-item
+            v-for="sublink in link.subLinks"
+            :to="sublink.to"
+            :key="sublink.title"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ sublink.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>{{ sublink.title }}</v-list-item-title>
+
+          </v-list-item>
+
+        </v-list-group>
+
+        <!--        <v-subheader
+                 v-if="link.subheader"
+                 :key="link.subheader"
+               >
+                 {{ link.subheader }}
+               </v-subheader> -->
+
       </div>
-      <v-spacer></v-spacer>
-      <v-btn class="close-icon" icon @click="drawer = !drawer"> <v-icon>mdi-close</v-icon></v-btn>
-    </v-list-item>
 
-    <v-list>
-      <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
-        <v-list-item-action>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title v-text="item.title" />
-        </v-list-item-content>
-      </v-list-item>
     </v-list>
-  </v-navigation-drawer>
-  <!---------- End Navigation Drawer ---------->
-
+    <!---------- End Navigation Drawer ---------->
+  </div>
 </template>
 <script>
 
@@ -31,34 +60,25 @@ export default {
   name: "Sidebar",
   data () {
     return {
-      clipped: false,
-      drawer: false,
-
-      fixed: false,
-      items: [
+      links: [
         {icon: 'mdi-home-circle-outline', title: 'Home', to: '/'},
         {icon: 'mdi-chart-bubble', title: 'About Us', to: '/About-Us'},
         {icon: 'mdi-chart-bubble', title: 'TestPage', to: '/TestPage'},
         {icon: 'mdi-note-multiple-outline', title: 'Blog', to: '/blog'},
         {icon: 'mdi-note-multiple-outline', title: 'Shop', to: '/products'},
-/*        {icon: 'mdi-note-multiple-outline', title: 'gallery', to: '/gallery'},
-        {icon: 'mdi-chart-bubble', title: 'Service', to: '/Service'},*/
         {icon: 'mdi-chart-bubble', title: 'faq', to: '/faq'},
         {icon: 'mdi-phone-in-talk', title: 'Contact Us', to: '/contact'},
-      ],
-      ServicesdropDownItems: [
-        { title: "Service", to: "/service" },
-        { title: "Service Details", to: "/service-details" },
+        {icon: 'mdi-folder', title: 'Service',
+          subLinks: [
+            {title: 'gallery', to: '/gallery', icon: 'mdi-note-multiple-outline'},
+            {title: 'Service', to: '/Service', icon: 'mdi-chart-bubble'},
+          ]
+        },
       ],
 
     }
 
   },
-  props : {
-    drawer : Boolean,
-    clipped: Boolean,
-  },
-
 }
 </script>
 

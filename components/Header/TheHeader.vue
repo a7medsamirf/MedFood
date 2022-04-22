@@ -15,17 +15,7 @@
       <v-spacer></v-spacer>
       <v-btn class="close-icon" icon @click="drawer = !drawer"> <v-icon>mdi-close</v-icon></v-btn>
     </v-list-item>
-
-    <v-list>
-      <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
-        <v-list-item-action>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title v-text="item.title" />
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
+  <sidebar />
   </v-navigation-drawer>
   <!---------- End Navigation Drawer ---------->
 
@@ -152,8 +142,9 @@
 <script>
 import ThemeSwitcher from "~/components/Header/ThemeSwitcher";
 import NavSearch from "~/components/Header/NavSearch";
+import Sidebar from "~/components/Header/Sidebar";
 export default {
-  components: { ThemeSwitcher, NavSearch},
+  components: {Sidebar, ThemeSwitcher, NavSearch},
   data () {
     return {
       clipped: false,
