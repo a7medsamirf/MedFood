@@ -12,8 +12,10 @@
           sm="12"
         >
           <v-card
+             outlined
+                   elevation-0
             v-if="!data_loaded"
-            class="food-card rounded-lg "
+            class="food-card rounded-lg"
           >
             <v-layout align-center>
               <v-flex class="px-12 py-5 text-center">

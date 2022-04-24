@@ -11,6 +11,7 @@
         <slick ref="slick" :options="slickOptions">
             <v-card v-for="(burger, index) in burger" :key="index"
               class="mx-auto my-12 item"
+                   elevation-5
             >
               <v-img
                 v-if="burger.image"

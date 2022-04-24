@@ -5,7 +5,7 @@
     <!---------- End Navigation Drawer ---------->
 
   <!---------- Start Navigation Drawer ---------->
-  <v-navigation-drawer class="hidden-md-and-up" v-model="drawer" :clipped="clipped" fixed>
+  <v-navigation-drawer class="hidden-md-and-up" v-model="drawer"  fixed>
     <v-list-item class="pa-3">
       <div class="logo">
         <NuxtLink to="/">
@@ -20,7 +20,7 @@
   <!---------- End Navigation Drawer ---------->
 
    <!---------- Start App Bar ---------->
-    <v-app-bar app height="85px" fixed>
+    <v-app-bar app height="85px" fixed >
       <v-container class="pa-0 fill-height">
         <v-app-bar-nav-icon class="hidden-md-and-up"  @click.stop="drawer = !drawer" />
         <NuxtLink to="/">
@@ -58,13 +58,13 @@
 
 
          <!---------- Start Cart Drawer ---------->
-        <v-navigation-drawer width="350" v-model="rightDrawer" :right="right" fixed :clipped="clipped" temporary>
+        <v-navigation-drawer width="350" v-model="rightDrawer" :right="right" fixed  temporary>
        <v-list-item class="pa-3">
 
          <v-badge bottom color="error" overlap offset-x="25" offset-y="30" v-if="$store.state.cart.cart.length > 0" :content="`${$store.state.cart.cart.length}`" >
           <v-icon class="mr-3">mdi-shopping-outline</v-icon>
          </v-badge>
-        <h4>Items</h4>
+        <h5>Items</h5>
           <v-spacer></v-spacer>
        <v-btn class="close-icon" icon @click="rightDrawer = !rightDrawer"><v-icon>mdi-close</v-icon></v-btn>
       </v-list-item>
@@ -147,7 +147,6 @@ export default {
   components: {Sidebar, ThemeSwitcher, NavSearch},
   data () {
     return {
-      clipped: false,
       drawer: false,
       right: true,
       rightDrawer: false,
