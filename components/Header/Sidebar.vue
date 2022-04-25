@@ -7,8 +7,8 @@
         <v-list-item
           v-if="!link.subLinks"
           :to="link.to"
-          avatar
-          class="v-list-item"
+           active-class="primary--text "
+          
         >
           <v-list-item-icon>
             <v-icon>{{ link.icon }}</v-icon>
@@ -21,7 +21,7 @@
           v-else
           :key="link.title"
           :prepend-icon="link.icon"
-          :value="false"
+          active-class="primary--text"
         >
           <template v-slot:activator>
             <v-list-item-title>{{ link.title }}</v-list-item-title>
@@ -60,6 +60,7 @@ export default {
           subLinks: [
             {title: 'gallery', to: '/gallery', icon: 'mdi-note-multiple-outline'},
             {title: 'faq', to: '/faq', icon: 'mdi-chart-bubble'},
+
           ]
         },
         {icon: 'mdi-chart-bubble', title: 'TestPage', to: '/TestPage'},
@@ -77,10 +78,10 @@ export default {
     }
 
   },
-  
+
+
 }
 </script>
-
-<style>
-
+<style scoped lang="scss">
+@import './Header.scss';
 </style>

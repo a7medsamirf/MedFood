@@ -27,40 +27,48 @@
           <v-img max-height="50" max-width="200" :src="require('static/images/logo.png')" ></v-img>
         </NuxtLink>
         <v-spacer />
-        <v-toolbar-items class="hidden-md-and-down DesktopNav">
-            <div v-for="(item, i) in items" :key="i" >
+      
 
+           <v-toolbar-items
+         class="hidden-md-and-down DesktopNav"
+        v-for="(item, i) in items" :key="i">
            <v-btn text v-if="!item.subitems" :to="item.to" router>
            {{ item.title }}
            </v-btn>
 
      <v-menu 
+     transition="slide-y-transition"
+     content-class="my-menu"
+     min-width="200"
         v-else
        :key="item.title"
        :value="false"
-     open-on-hover bottom min-width="240" offset-y transition="scroll-y-reverse-transition">
+      active-class="primary--text"
+     >
+<!--       open-on-hover bottom offset-y transition="scroll-y-reverse-transition" -->
+
             <template v-slot:activator="{ on, attrs }">
               <v-btn :ripple="false" text v-bind="attrs" v-on="on">
-                Service
+               {{ item.title }}
                   <v-icon right>mdi-chevron-down</v-icon> 
               </v-btn>
             </template>
 
             <v-list>
-              <v-list-item link
-              v-for="subitem in link.subitems"
+              <v-list-item
+              v-for="subitem in item.subitems"
               :to="subitem.to"
               :key="subitem.title"
+              active-class="primary--text"
               >
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                <v-list-item-title>{{ subitem.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
-            </div>
+    
      
+        </v-toolbar-items>  
 
-     
-        </v-toolbar-items>
 
       <v-badge bottom color="error" overlap offset-x="20" offset-y="45" v-if="$store.state.cart.cart.length > 0" :content="`${$store.state.cart.cart.length}`" >
        <v-btn @click.stop="rightDrawer = !rightDrawer"  icon><v-icon size="20">mdi-cart-outline</v-icon></v-btn>
@@ -95,8 +103,8 @@
           <template v-for="(c, i) in $store.state.cart.cart">
               <v-col :key="`cartItem${i}`" class="py-1">
                 <v-card
-                 outlined
-                    elevation-0
+                  outlined
+                  elevation-0
                   flat
                 >
                   <v-list-item>
@@ -171,22 +179,21 @@ export default {
       right: true,
       rightDrawer: false,
       fixed: false,
-      items: [
+            items: [
         {title: 'Home', to: '/'},
         {title: 'About Us', to: '/About-Us'},
         { title: 'Pages',
           subitems: [
             {title: 'gallery', to: '/gallery'},
             {title: 'faq', to: '/faq'},
+            {title: 'TestPage', to: '/TestPage'},
           ]
         },
-        {title: 'TestPage', to: '/TestPage'},
+        
         {title: 'Blog', to: '/blog'},
         {title: 'Shop', to: '/products'},
-        {title: 'faq', to: '/faq'},
         {title: 'Contact Us', to: '/contact'},
       ],
-
     }
 
   },
@@ -194,102 +201,24 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.v-navigation-drawer
-{
-  .v-list .v-list-item--active {
-    opacity: 1;
-    box-shadow: 0 6px 18px -8px rgb(94 86 105 / 56%) !important;
-    color: #fff;
-    background: var(--mainbackground);
-  }
+<style scoped lang="scss">
+@import './Header.scss';
 
-  .v-list .v-list-item--active i.v-icon.notranslate.mdi.mdi-record-circle-outline {
-    color: #fff;
-  }
+.my-menu {
+  margin-top: 40px;
+  contain: initial;
+  overflow: visible;
 }
-.v-toolbar_content,
-.v-toolbar_extension {
-  padding: 0;
-}
-
-header.v-sheet.theme--light.v-toolbar.v-app-bar.v-app-bar--fixed {
-  background-color: transparent;
-  box-shadow: none !important;
-}
-
-header.v-sheet.theme--light.v-toolbar.v-app-bar.v-app-bar--fixed.v-app-bar--is-scrolled
-{
-  box-shadow: 0 3px 3px -1px rgb(10 22 70 / 10%), 0 0 1px 0 rgb(10 22 70 / 6%) !important;
-  background-color: rgb(255 255 255 / 65%);
-  backdrop-filter: blur(8px);
-}
-
-.sub-list-group{
-  background-color: #f4f5fa;
-}
-
-
-i.v-icon.notranslate.mdi.mdi-record-circle-outline {
-  font-size: 15px;
-  color:  var(--maincolor);
-}
-
-.theme--light.v-app-bar.v-toolbar.v-sheet {
-  background-color: #f5f5f5;
-}
-
-.theme--dark.v-app-bar.v-toolbar.v-sheet {
-  background-color: #272727;
-}
-
-.v-sheet.v-app-bar.v-toolbar {
-  border-radius: 0;
-}
-.v-toolbar__content,
-.v-toolbar__extension {
-  padding: 0px 16px !important;
-}
-.v-toolbar .DesktopNav .v-btn--active:hover::before,
-.v-toolbar .DesktopNav .v-btn--active::before {
-  opacity: 1 !important;
-}
-.v-toolbar .DesktopNav .v-btn:before {
-  background-color: transparent;
-  border-radius: 3px;
-  bottom: unset;
-  color: inherit;
-  content: "";
-  left: 0px;
-  opacity: 0;
-  pointer-events: none;
+.my-menu::before {
   position: absolute;
-  right: 0;
+  content: "";
   top: 0;
-  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-  border-bottom: 3px solid;
-}
-header .v-btn:not(.v-btn--round).v-size--default {
-  height: 36px;
-  min-width: 64px !important;
-  padding: 0;
-  margin: 0px 10px;
-}
-
-.v-navigation-drawer {
-  transition: all 0.8s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-.close-icon:hover .v-icon
-{
-  transition: 0.70s;
-  transform: rotate(180deg);
-}
-
-.v-menu__content {
-  box-shadow: 0 1px 3px rgb(0 0 0 / 10%) !important;
-}
-.v-app-bar .v-list {
-  background: #001e26 !important;
-  color: #FFFFFF;
+  right: 10px;
+  transform: translateY(-100%);
+  width: 10px; 
+  height: 13px; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 13px solid #fff;
 }
 </style>
