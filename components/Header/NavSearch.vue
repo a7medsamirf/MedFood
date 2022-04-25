@@ -16,7 +16,10 @@
         </template>
 
 
-          <v-card>
+          <v-card
+          outlined
+          elevation-0
+          >
             <v-text-field
               class="px-16 py-16"
               label="Type keywords here..."

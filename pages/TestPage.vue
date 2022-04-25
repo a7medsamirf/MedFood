@@ -12,8 +12,8 @@
           sm="12"
         >
           <v-card
-             outlined
-                   elevation-0
+            outlined
+            elevation-0
             v-if="!data_loaded"
             class="food-card rounded-lg"
           >

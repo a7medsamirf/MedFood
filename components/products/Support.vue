@@ -4,6 +4,8 @@
     <v-col lg="4" v-for="(support, index) in supports" :key="index">
   <v-card
     class="mx-auto py-3"
+    outlined
+    elevation-0
   >
     <v-list-item three-line>
           <v-list-item-avatar

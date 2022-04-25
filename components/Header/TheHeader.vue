@@ -28,20 +28,38 @@
         </NuxtLink>
         <v-spacer />
         <v-toolbar-items class="hidden-md-and-down DesktopNav">
-          <v-btn  text v-for="(item, i) in items" :key="i" :to="item.to" router>{{ item.title }}</v-btn>
-          <v-menu open-on-hover bottom min-width="240" offset-y transition="scroll-y-reverse-transition">
+            <div v-for="(item, i) in items" :key="i" >
+
+           <v-btn text v-if="!item.subitems" :to="item.to" router>
+           {{ item.title }}
+           </v-btn>
+
+     <v-menu 
+        v-else
+       :key="item.title"
+       :value="false"
+     open-on-hover bottom min-width="240" offset-y transition="scroll-y-reverse-transition">
             <template v-slot:activator="{ on, attrs }">
               <v-btn :ripple="false" text v-bind="attrs" v-on="on">
                 Service
+                  <v-icon right>mdi-chevron-down</v-icon> 
               </v-btn>
             </template>
 
             <v-list>
-              <v-list-item link v-for="(item, index) in dropDownItems" :key="index" :to="item.to">
+              <v-list-item link
+              v-for="subitem in link.subitems"
+              :to="subitem.to"
+              :key="subitem.title"
+              >
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
+            </div>
+     
+
+     
         </v-toolbar-items>
 
       <v-badge bottom color="error" overlap offset-x="20" offset-y="45" v-if="$store.state.cart.cart.length > 0" :content="`${$store.state.cart.cart.length}`" >
@@ -77,6 +95,8 @@
           <template v-for="(c, i) in $store.state.cart.cart">
               <v-col :key="`cartItem${i}`" class="py-1">
                 <v-card
+                 outlined
+                    elevation-0
                   flat
                 >
                   <v-list-item>
@@ -152,19 +172,19 @@ export default {
       rightDrawer: false,
       fixed: false,
       items: [
-        {icon: 'mdi-home-circle-outline', title: 'Home', to: '/'},
-        {icon: 'mdi-chart-bubble', title: 'About Us', to: '/About-Us'},
-        {icon: 'mdi-chart-bubble', title: 'TestPage', to: '/TestPage'},
-        {icon: 'mdi-note-multiple-outline', title: 'Blog', to: '/blog'},
-        {icon: 'mdi-note-multiple-outline', title: 'Shop', to: '/products'},
-/*        {icon: 'mdi-note-multiple-outline', title: 'gallery', to: '/gallery'},
-        {icon: 'mdi-chart-bubble', title: 'Service', to: '/Service'},*/
-        {icon: 'mdi-chart-bubble', title: 'faq', to: '/faq'},
-        {icon: 'mdi-phone-in-talk', title: 'Contact Us', to: '/contact'},
-      ],
-      dropDownItems: [
-        { title: "Service", to: "/service" },
-        { title: 'gallery', to: '/gallery'},
+        {title: 'Home', to: '/'},
+        {title: 'About Us', to: '/About-Us'},
+        { title: 'Pages',
+          subitems: [
+            {title: 'gallery', to: '/gallery'},
+            {title: 'faq', to: '/faq'},
+          ]
+        },
+        {title: 'TestPage', to: '/TestPage'},
+        {title: 'Blog', to: '/blog'},
+        {title: 'Shop', to: '/products'},
+        {title: 'faq', to: '/faq'},
+        {title: 'Contact Us', to: '/contact'},
       ],
 
     }

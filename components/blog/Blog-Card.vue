@@ -7,8 +7,11 @@
           type=" card-avatar, article, actions"
         >
         </v-skeleton-loader>
-        <v-card       :loading="loading"
-                      v-if="!data_loaded"
+        <v-card      
+         :loading="loading"
+          v-if="!data_loaded"
+          outlined
+          elevation-0
         >
 
           <NuxtLink  :to="{ name: 'blog-slug', params: { slug: article.slug } }" class="blog-link">
