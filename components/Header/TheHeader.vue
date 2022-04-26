@@ -26,9 +26,7 @@
         <NuxtLink to="/">
           <v-img max-height="50" max-width="200" :src="require('static/images/logo.png')" ></v-img>
         </NuxtLink>
-        <v-spacer />
-      
-
+        <v-spacer />    
            <v-toolbar-items
          class="hidden-md-and-down DesktopNav"
         v-for="(item, i) in items" :key="i">
