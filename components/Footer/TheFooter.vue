@@ -16,7 +16,7 @@
             <p class="text-justify ma-3">
               Lorem ipsum dolor sit amet, consecrated advising elite. Sed incident, erat in malady aliquot, </p>
 
-                    <newsletter />
+            <newsletter />
 
           </v-col>
           <v-col cols="12" lg="3" md="6" sm="12">
@@ -119,9 +119,11 @@
 <script>
 
 
+import Newsletter from "~/components/Footer/Newsletter";
 export default {
 
   name: "The-Footer",
+  components: {Newsletter},
   data: () => ({
     Services: [
       { text: 'Real-Time', icon: 'mdi-clock' },

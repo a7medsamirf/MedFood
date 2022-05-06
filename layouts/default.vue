@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import TheFooter from "~/components/TheFooter";
+import TheFooter from "~/components/Footer/TheFooter";
 import TheHeader from "~/components//Header/TheHeader";
 import TabBar from "~/components/Tab-bar";
 import OnScroll from "~/components/onScroll";

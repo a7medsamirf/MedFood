@@ -1,9 +1,5 @@
 <template>
   <div>
-    <!---------- Start Navigation Drawer ---------->
-   <!--    <sidebar app  :clipped="clipped" :drawer="drawer"  /> -->
-    <!---------- End Navigation Drawer ---------->
-
   <!---------- Start Navigation Drawer ---------->
   <v-navigation-drawer class="hidden-md-and-up" v-model="drawer"  fixed>
     <v-list-item class="pa-3">
@@ -34,15 +30,15 @@
            {{ item.title }}
            </v-btn>
 
-     <v-menu 
-     transition="slide-y-transition"
-     content-class="my-menu"
-     min-width="200"
-        v-else
-       :key="item.title"
-       :value="false"
-      active-class="primary--text"
-     >
+          <v-menu 
+          transition="slide-y-transition"
+          content-class="page-menu"
+          min-width="200"
+          v-else
+          :key="item.title"
+          :value="false"
+          active-class="primary--text"
+          >
 <!--       open-on-hover bottom offset-y transition="scroll-y-reverse-transition" -->
 
             <template v-slot:activator="{ on, attrs }">
@@ -201,22 +197,4 @@ export default {
 
 <style scoped lang="scss">
 @import './Header.scss';
-
-.my-menu {
-  margin-top: 40px;
-  contain: initial;
-  overflow: visible;
-}
-.my-menu::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  right: 10px;
-  transform: translateY(-100%);
-  width: 10px; 
-  height: 13px; 
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 13px solid #fff;
-}
 </style>

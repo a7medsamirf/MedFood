@@ -6,6 +6,15 @@
 /*$material-light: ( 'background': #faf7f2 );
 $material-dark: ( 'background': #001e26 );*/
 
+:root {
+  --primary: #ff8e28;
+  --mainbackground: #ff8e28;
+  --darksurface: #012a35;
+  --darkbody: #001e26;
+  --lightsurface: #fff;
+  --vs-primary: 26, 92, 255;
+  --p-darkcolor: #a9a9a9
+}
 
 // $font-size-root: 20px;
 
@@ -50,23 +59,4 @@ $unit: 8px;
 // Spacing unit
 $py-20: 6.25rem;
 
-$spacing1: 1 * $unit; //8
-$spacing2: 2 * $unit; //16
-$spacing3: 3 * $unit; // 24
-$spacing4: 4 * $unit;
-$spacing5: 5 * $unit;
-$spacing6: 6 * $unit;
-$spacing7: 7 * $unit;
-$spacing8: 8 * $unit;
-$spacing9: 9 * $unit;
-$spacing10: 10 * $unit;
-$spacing11: 11 * $unit;
-$spacing12: 12 * $unit;
-$spacing13: 13 * $unit;
-$spacing14: 14 * $unit;
-$spacing15: 15 * $unit;
-$spacing16: 16 * $unit;
-$spacing17: 17 * $unit;
-$spacing18: 18 * $unit;
-$spacing19: 19 * $unit;
-$spacing20: 20 * $unit;
+

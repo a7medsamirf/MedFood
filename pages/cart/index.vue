@@ -16,7 +16,7 @@
       </div>
       <v-container>
         <v-row>
-          <v-col cols="12" md="10">
+          <v-col cols="12" md="12">
             <v-simple-table  v-if="$store.state.cart.cart.length > 0">
               <template>
                 <thead>
@@ -31,6 +31,12 @@
                 <tbody  v-for="(c, i) in $store.state.cart.cart" :key="c">
                 <tr :key="`cartItem${i}`">
                   <td>
+       
+                      <v-list-item class="pa-0">
+                      <v-list-item-avatar
+                          size="50"
+                          color="grey"
+                        >
                     <v-img
                       class="rounded-lg"
                       :title="c.product.name"
@@ -38,20 +44,23 @@
                       width="50"
                       :src="require(`~/static/images/shop/${c.product.image}`)" >
                     </v-img>
-
-                    <h5 class="font-weight-bold">
-                      {{ c.product.name }}
-                    </h5>
-
+                        </v-list-item-avatar>
+                        <v-list-item-content>
+                          <v-list-item-title class="text-overline mb-1">
+                       {{ c.product.name }}
+                          </v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+              
 
                   </td>
                   <td>
-                        <v-btn
+                  <v-btn
                     @click="$store.commit('cart/IncreaseItemCount', i)"
                     icon
-                    color="primary"
+                   
                   >
-                    <v-icon size="20">mdi-plus-circle</v-icon>
+                    <v-icon  color="primary" size="20">mdi-plus-circle</v-icon>
                   </v-btn>
                     <span class="mx-2">{{ c.quantity }}</span>
                     <v-btn
@@ -64,7 +73,11 @@
                     </td>
                   <td> {{ $formatMoney(c.product.price) }}</td>
                   <td>{{ $formatMoney(c.product.price * c.quantity) }}</td>
-                  <td> <v-btn @click="$store.commit('cart/RemoveCartItem', i)" right icon><v-icon color="error" size="18">mdi-trash-can-outline</v-icon></v-btn></td>
+                  <td>
+                   <v-btn @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
+                   <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>
+                   </v-btn>
+                   </td>
                 </tr>
                 </tbody>
               </template>

@@ -17,7 +17,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
-      { name : 'theme-color', content: '#ff8e28'}
+      { name : 'theme-color', content: '#3270FC'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
@@ -41,6 +41,7 @@ export default {
     '~/assets/vendors/slick-carousel/slick-theme.css',
     '~/assets/vendors/animate.css',
     "~/assets/styles.scss",
+    "~/assets/dark-styles.scss",
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -119,6 +120,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
+      dark: false,
       themes: {
         dark: {
           bg: "#001e26", // body bg

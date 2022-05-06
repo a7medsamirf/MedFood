@@ -64,12 +64,6 @@ export default {
       this.data_loaded= false;
     } , 3000);
   },
-    props: {
-    author: {
-      type: Object,
-      required: true
-    }
-  }
 }
 </script>
 

@@ -28,7 +28,11 @@
     <v-tab-item class="mt-10 pa-2">
       <div class="carousel" v-if="loaded">
         <slick ref="slick" :options="slickOptions">
-          <v-card class="mx-auto pa-5"  v-for="(review, index) in reviews" :key="index">
+          <v-card
+           outlined
+           elevation-0 
+           class="mx-auto pa-5"
+           v-for="(review, index) in reviews" :key="index">
             <v-list-item three-line>
               <v-list-item-avatar
                 tile

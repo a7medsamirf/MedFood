@@ -3,7 +3,7 @@
 
            <v-btn icon>
         <v-icon
-         size="20"
+          size="20"
           :key="$vuetify.theme.dark"
           :color="$vuetify.theme.dark ? 'primary' : 'dark'"
           @click="toggle_dark_mode"

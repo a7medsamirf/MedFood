@@ -14,8 +14,6 @@
             <v-icon  size="20">mdi-magnify</v-icon>
           </v-btn>
         </template>
-
-
           <v-card
           outlined
           elevation-0

@@ -127,6 +127,9 @@
 
         </v-row>
 
+
+<pagination :nextPage="nextPage" :pageNo="1" urlPrefix="/blog"  />
+
       </v-container>
     </div>
 
@@ -134,19 +137,24 @@
 </template>
 
 <script>
+import Pagination from '~/components/blog/Pagination.vue';
 import AppSearchInput from '~/components/widget/AppSearchInput.vue';
 export default {
   name: "index.vue",
-   components: {AppSearchInput},
+   components: {AppSearchInput, Pagination},
   async asyncData({ $content, params }) {
-    const articles = await $content('articles')
+    const tenArticles = await $content('articles')
       /*.only(['title', 'description', 'img', 'tags', 'slug', 'author'])*/ // لعرض بعض البيانات الخاصه بالمقالة
       /* .where({ tags: { $containsAny: ['burger'] } }) */ // استدعاء وعرض مجموعة من المقالات باستخدام التصنيف
       .sortBy('createdAt', 'desc')
       .limit(5)
       /*.limit(5)*/ // استدعاء اخر 5 مقالات
       .fetch()
-  const tags = await $content('tags')
+
+    const nextPage = tenArticles.length === 5
+    const articles = nextPage ? tenArticles.slice(0, -1) : tenArticles
+
+      const tags = await $content('tags')
       .only(['name', 'description', 'img', 'slug'])
       .fetch()
     return {
@@ -155,13 +163,13 @@ export default {
       data_loaded : true,
       PageTitle: 'Our Blog',
       page: 1,
+      nextPage,
     }
   },
   mounted(){
     setTimeout(()=>{
       this.data_loaded= false;
     } , 2000);
-
   },
   methods: {
     formatDate(date) {

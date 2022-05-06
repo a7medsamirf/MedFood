@@ -1,11 +1,10 @@
 .v-navigation-drawer
 {
-
-
   .v-list .v-list-item--active i.v-icon.notranslate.mdi.mdi-record-circle-outline {
     color: #fff;
   }
 }
+
 .v-toolbar_content,
 .v-toolbar_extension {
   padding: 0;
@@ -67,6 +66,7 @@ i.v-icon.notranslate.mdi.mdi-record-circle-outline {
   transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
 /*   border-bottom: 3px solid;
  */}
+
 header .v-btn:not(.v-btn--round).v-size--default {
   height: 36px;
   min-width: 64px !important;
@@ -89,4 +89,26 @@ header .v-btn:not(.v-btn--round).v-size--default {
 .v-app-bar .v-list {
   background: #001e26 !important;
   color: #FFFFFF;
+}
+
+.page-menu {
+  margin-top: 50px;
+  contain: initial;
+  overflow: visible;
+}
+.page-menu::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 58px;
+  transform: translateY(-100%);
+  width: 10px; 
+  height: 13px; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 13px solid #fff;
+}
+
+.theme--dark .page-menu::before {
+  border-bottom: 13px solid #012a35;
 }

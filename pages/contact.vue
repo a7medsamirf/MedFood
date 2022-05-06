@@ -14,9 +14,18 @@
         <v-row>
           <v-col cols="12" lg="3" md="6"  v-for="(contact, i) in contacts" :key="i">
               <u-animate-container>
-              <u-animate mode="out-in" name="fadeInRightBig" delay="1s" duration="1s" :iteration="1" :offset="0" animateClass="animated" :begin="false">
+              <u-animate
+               mode="out-in"
+                name="fadeInRightBig"
+                delay="1s" 
+                duration="1s" 
+                :iteration="1"
+                :offset="0"
+                animateClass="animated"
+                :begin="false"
+                >
                <v-hover>
-      <v-card
+            <v-card
             outlined
             elevation-0
               class="mx-auto text-center rounded-xl  contact-box "
