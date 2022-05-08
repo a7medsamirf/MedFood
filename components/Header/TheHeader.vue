@@ -1,6 +1,7 @@
 <template>
   <div>
-  <!---------- Start Navigation Drawer ---------->
+
+    <!---------- Start Navigation Drawer ---------->
   <v-navigation-drawer class="hidden-md-and-up" v-model="drawer"  fixed>
     <v-list-item class="pa-3">
       <div class="logo">
@@ -22,7 +23,7 @@
         <NuxtLink to="/">
           <v-img max-height="50" max-width="200" :src="require('static/images/logo.png')" ></v-img>
         </NuxtLink>
-        <v-spacer />    
+        <v-spacer />
            <v-toolbar-items
          class="hidden-md-and-down DesktopNav"
         v-for="(item, i) in items" :key="i">
@@ -30,7 +31,7 @@
            {{ item.title }}
            </v-btn>
 
-          <v-menu 
+          <v-menu
           transition="slide-y-transition"
           content-class="page-menu"
           min-width="200"
@@ -44,7 +45,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-btn :ripple="false" text v-bind="attrs" v-on="on">
                {{ item.title }}
-                  <v-icon right>mdi-chevron-down</v-icon> 
+                  <v-icon right>mdi-chevron-down</v-icon>
               </v-btn>
             </template>
 
@@ -59,9 +60,9 @@
               </v-list-item>
             </v-list>
           </v-menu>
-    
-     
-        </v-toolbar-items>  
+
+
+        </v-toolbar-items>
 
 
       <v-badge bottom color="error" overlap offset-x="20" offset-y="45" v-if="$store.state.cart.cart.length > 0" :content="`${$store.state.cart.cart.length}`" >
@@ -183,7 +184,7 @@ export default {
             {title: 'TestPage', to: '/TestPage'},
           ]
         },
-        
+
         {title: 'Blog', to: '/blog'},
         {title: 'Shop', to: '/products'},
         {title: 'Contact Us', to: '/contact'},
