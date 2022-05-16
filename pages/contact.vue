@@ -11,14 +11,16 @@
 
     <div class="inner d-flex align-center justify-center py-20">
       <v-container>
+             <u-animate-container>
         <v-row>
-          <v-col cols="12" lg="3" md="6"  v-for="(contact, i) in contacts" :key="i">
-              <u-animate-container>
+          <v-col cols="12" lg="3" md="6"
+             v-for="(contact, index) in contacts"
+             :key="index">
+         
               <u-animate
-               mode="out-in"
                 name="fadeInRightBig"
-                delay="1s" 
-                duration="1s" 
+                :delay="(0.4 * index) + 's'"
+                duration="1s"
                 :iteration="1"
                 :offset="0"
                 animateClass="animated"
@@ -48,7 +50,7 @@
             </v-card>
             </v-hover>
               </u-animate>
-            </u-animate-container>
+        
 
         
       
@@ -127,7 +129,7 @@
         </v-row>
 
 
-
+    </u-animate-container>
 
       </v-container>
     </div>
