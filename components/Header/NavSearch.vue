@@ -41,11 +41,6 @@
   </div>
 
 
-
-
-
-
-
 </template>
 <script>
 export default {
@@ -58,11 +53,3 @@ export default {
 
 }
 </script>
-
-<style lang="scss">
-
-
-.v-overlay:hover {
-  cursor: url(../../static/cross.png), auto;
-}
-</style>

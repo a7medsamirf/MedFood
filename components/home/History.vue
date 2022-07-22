@@ -5,7 +5,7 @@
         <v-row align="center" justify="center">
           <v-col cols="12" md="6" class="px-sm-5 px-0">
             <div class="text title-main">
-              <h4 class="ma-3 default--text">History of MedFood</h4>
+              <h4 class="ma-3 primary--text">History of MedFood</h4>
               <h2 class="primary--text ma-3 Welcome-text-title animate__animated animate__bounce animate__delay-2s">We Cook Tradition &
                     Family Recipes
               </h2>

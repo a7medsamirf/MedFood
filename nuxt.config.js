@@ -1,11 +1,10 @@
-import colors from 'vuetify/es5/util/colors'
-
+import { theme } from './config/vuetify.options'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
-  target: 'static',
+/*   ssr: false,
+  target: 'static', */
   // Target: https://go.nuxtjs.dev/config-target
- 
+
 /*   router: { base: '/MedFood/' }, */
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -21,6 +20,11 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&display=swap"},
+      {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Monoton&display=swap"},
+      {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"},
+      {rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"},
+
       {
         hid: 'canonical',
         rel: 'canonical',
@@ -36,19 +40,26 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
 
   css: [
+    '~/assets/vuetify-overrides.scss',
     "@sweetalert2/theme-material-ui",
     '~/assets/vendors/slick-carousel/slick.css',
-    '~/assets/vendors/slick-carousel/slick-theme.css',
-    '~/assets/vendors/animate.css',
-    "~/assets/styles.scss",
-    "~/assets/dark-styles.scss",
+    '~/assets/vendors/slick-carousel/slick-theme.css'
   ],
 
+  styleResources: {
+    scss: [
+        '~/assets/_transition.scss',
+        '~/assets/_mixins.scss',
+        '~/assets/_functions.scss',
+        '~/assets/_media-queries.scss',
+        '~/assets/_url-img.scss'
+    ]
+},
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: '~/plugins/cart.js', ssr: false},
     {src: '~/plugins/toast-notification', ssr: false},
-    {src: '~/plugins/wow.js', ssr: false},
+    {src: '~/plugins/wow.js', ssr: false}
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -56,7 +67,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    ['@nuxtjs/vuetify',{rtl:true}],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -74,6 +85,8 @@ export default {
     // https://go.nuxtjs.dev/sitemap
 /*     '@nuxtjs/sitemap',
  */    "vue-sweetalert2/nuxt/no-css",
+    // https://resources.com/
+    "@nuxtjs/style-resources",
   ],
 
 /*   sitemap: {
@@ -119,42 +132,13 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: false,
-      themes: {
-        dark: {
-          bg: "#001e26", // body bg
-          surface: "#012a35", // card and all box
-          footercolor: '#012a35',
-          bggrey: '#001e26',
-          primary: '#ff8e28',
-          secondary: '#424242',
-          accent: '#82B1FF',
-          error: '#FF5252',
-          info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FFC107',
-          default: '#ff8e28',
-        },
-        light: {
-          bg: "#ffffff",
-          surface: "#ffffff",
-          footercolor: '#012a35',
-          bggrey: '#faf7f2',
-          primary: '#ff8e28',
-          secondary: '#424242',
-          accent: '#82B1FF',
-          error: '#FF5252',
-          info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FFC107',
-          default: '#231E41',
-        },
-      },
-    }
+    optionsPath: './config/vuetify.options.js',
   },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    loaders: {
+      vus: { cacheBusting: true },
+      scss: { sourceMap: false }
+    },
   }
 }

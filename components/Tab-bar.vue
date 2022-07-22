@@ -37,7 +37,7 @@
     computed: {
       color () {
         switch (this.value) {
-          default: return 'primary'
+          default: return 'default'
         }
       },
     },

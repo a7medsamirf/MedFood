@@ -21,7 +21,7 @@
             <div class="sb-badge">
               <v-chip
                 class="ma-2 white--text rounded-0"
-                color="primary "
+                color="default "
                 label
                 v-for="(tag, i) in product.tags"
                 :key="`prod${product.id}-${i}`"

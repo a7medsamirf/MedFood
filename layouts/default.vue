@@ -2,7 +2,7 @@
   <v-app>
 
     <the-header />
-    <v-main>
+    <v-main class="pt-0">
         <Nuxt  />
     </v-main>
   <tab-bar />
