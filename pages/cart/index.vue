@@ -28,10 +28,10 @@
                   <th>Delete</th>
                 </tr>
                 </thead>
-                <tbody  v-for="(c, i) in $store.state.cart.cart" :key="c">
+                <tbody  v-for="(cart, i) in $store.state.cart.cart" :key="cart">
                 <tr :key="`cartItem${i}`">
                   <td>
-       
+
                       <v-list-item class="pa-0">
                       <v-list-item-avatar
                           size="50"
@@ -39,30 +39,30 @@
                         >
                     <v-img
                       class="rounded-lg"
-                      :title="c.product.name"
+                      :title="cart.product.name"
                       height="50"
                       width="50"
-                      :src="require(`~/static/images/shop/${c.product.image}`)" >
+                      :src="require(`~/static/images/shop/${cart.product.image}`)" >
                     </v-img>
                         </v-list-item-avatar>
                         <v-list-item-content>
                           <v-list-item-title class="text-overline mb-1">
-                       {{ c.product.name }}
+                       {{ cart.product.name }}
                           </v-list-item-title>
                         </v-list-item-content>
                       </v-list-item>
-              
+
 
                   </td>
                   <td>
                   <v-btn
                     @click="$store.commit('cart/IncreaseItemCount', i)"
                     icon
-                   
+
                   >
                     <v-icon  color="primary" size="20">mdi-plus-circle</v-icon>
                   </v-btn>
-                    <span class="mx-2">{{ c.quantity }}</span>
+                    <span class="mx-2">{{ cart.quantity }}</span>
                     <v-btn
                       color="primary"
                       @click="$store.commit('cart/DecreaseItemCount', i)"
@@ -71,8 +71,8 @@
                       <v-icon size="20">mdi-minus-circle</v-icon>
                     </v-btn>
                     </td>
-                  <td> {{ $formatMoney(c.product.price) }}</td>
-                  <td>{{ $formatMoney(c.product.price * c.quantity) }}</td>
+                  <td> {{ $formatMoney(cart.product.price) }}</td>
+                  <td>{{ $formatMoney(cart.product.price * cart.quantity) }}</td>
                   <td>
                    <v-btn @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
                    <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>
@@ -151,7 +151,7 @@ export default {
         font-weight: $font-medium;
       }
 
- 
+
 
       tbody tr td {
         border: none !important;

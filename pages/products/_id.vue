@@ -41,7 +41,7 @@
               <v-spacer></v-spacer>
             <v-card-title class="py-2 pa-0 font-weight-bold text-color-default">
               <h3>{{ product.name }}</h3>
-              
+
               <v-spacer></v-spacer>
             </v-card-title>
                 <v-rating
@@ -93,6 +93,14 @@
 
   </div>
 </template>
+
+<v-btn
+  @click="$store.commit('cart/AddToCart', product)"
+  class="ma-2 text-capitalize rounded-0 order-btn"
+  color="primary"
+  large
+>
+<v-icon left>mdi-shopping-outline</v-icon>Add To Cart</v-btn>
 
 <script>
 import Description from '~/components/products/Description.vue';

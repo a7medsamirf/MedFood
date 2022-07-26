@@ -8,7 +8,7 @@
 <!--     <blog-card :document="article" /> -->
 
 
-    <blog-card :document="article" />
+<!--    <blog-card :document="article" />-->
 
 
   </div>
@@ -21,14 +21,14 @@ import History from '~/components/home/History.vue';
 import Welcome from "~/components/home/Welcome";
 import banner from "~/components/home/banner";
 import WhyChooseUs from '~/components/home/Why-Choose-Us.vue';
-import BlogCard from '~/components/blog/Blog-Card.vue';
+/*import BlogCard from '~/components/blog/Blog-Card.vue';*/
 export default {
   name: "Home",
 
   loading: true,
-  components: {Welcome, Hero, History, WhyChooseUs, banner , BlogCard},
+  components: {Welcome, Hero, History, WhyChooseUs, banner },
   data() {
-    
+
     return {
       title: 'Home'
     }

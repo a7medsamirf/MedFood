@@ -1,126 +1,231 @@
 /*
-Template Name: Medala Solution | Personal Portfolio HTML5 Template
-Author: Ahmed Samir
-Author URI: https://www.facebook.com/a7med.samir.f
-Description: Medala Solution | Personal Portfolio HTML5 Template
+Template Name: MedFood
+Description: MedHouse | Vue Template
 Version: 1.0
-Tags: bootstrap, clean, creative, cv, freelancer, gallery, html5, one page, personal, portfolio, responsive, resume, simple, vcard
-/* Main Css Rules  for Main Elements in The project */
-
+Author: Ahmed Samir
+        linkedin    URI: https://www.linkedin.com/in/a7med-samir-f/
+        Github      URI: https://github.com/a7medsamirf
+        Facebook    URI: https://www.facebook.com/a7med.samir.93/
+        Twitter     URI: https://twitter.com/a7medsamirf
+Tags: vue, Nuxt, Vuetify, Content, APi, one page, responsive, Axios
+Main Css Rules  for Main Elements in The project
 /*
 Style Index
 ==================================================
     1. Basic Setup
-    2. Navigation Bar
-    3. Home Page
-      - widget
+    2. Theme color
+        - Theme Dark
+        - Theme Light
+    3. Header & Navigation Drawer
+    4. Mobile Bar Settings
+    4. Font Styles
+        - widget
     3. page content
     4. login page
     5. WHAT'S ON Section
     6. About Section
-    7. Now Showing Section
-    8. Blog Post Section
-    9. Newsletter Section
-    10. Footer Section
-    11. Media Query Section
 */
 /*--------------------------------------------------
   [1. Start Basic Setup ]
 --------------------------------------------------*/
 :root {
-  --p-darkcolor: #a9a9a9;
-  --white-color: #fff;
-  --dark-color: #144273;
+  --primary: #ff8e28;
+  --mainbackground: #ff8e28;
+  --darksurface: #012a35;
+  --darkbody: #001e26;
+  --lightsurface: #fff;
+  --vs-primary: 26, 92, 255;
+  --p-darkcolor: #a9a9a9
 }
 
 /* Scrollbar Style */
+html {
+  scroll-behavior: smooth;
+}
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px
 }
+
 ::-webkit-scrollbar-thumb {
   cursor: pointer;
-  background: #ff9d2d;
+  background: $dark-surface;
 }
-::selection {
-  background-color: #ff9d2d;
-  color: #fff
+
+::-moz-selection, -webkit-::-moz-selection {
+  background-color: $dark-surface;
+  color: $palette-text-white !important;
 }
--webkit-::selection {
-  background-color: #ff9d2d;
-  color: #fff
-}
+
+::selection,
+-webkit-::selection,
 ::-moz-selection {
-  background-color: #ff9d2d;
-  color: #fff
+  background-color: $dark-surface;
+  color: $palette-text-white !important;
 }
 
-body {
-  font-family: $font-family-Josefin;
-  margin: 0;
-  padding: 0;
-  text-transform: capitalize !important;
-}
+/*========== theme Text ==========*/
+.use-text {
+  &-title {
+    font-size: $h1-font-size;
 
-h1 {
-  line-height: 100%;
-  font-size: $h1-font-size;
-  letter-spacing: -3px;
-}
+    @include breakpoints-down(md) {
+      font-size: $h2-font-size;
+      line-height: $spacing7;
+    }
 
-h2 {
-  font-size: $h2-font-size;
-  font-weight: $font-bold;
-  text-transform: capitalize;
-}
+    @include breakpoints-down(xs) {
+      font-size: $h3-font-size;
+      line-height: $spacing5
+    }
+  }
 
-h3 {
-  font-size: $h3-font-size;
-  font-weight: $font-regular;
-  text-transform: capitalize;
-}
+  &-title2 {
+    font-size: $h2-font-size;
 
-h4 {
-  font-size: $h4-font-size;
-  font-weight: $font-regular;
-}
+    @include breakpoints-down(md) {
+      font-size: $h3-font-size;
+      line-height: $spacing7;
+    }
 
-h5 {
-  font-size: $h5-font-size;
-  font-weight: $font-regular;
-}
+    @include breakpoints-down(xs) {
+      font-size: $h4-font-size;
+      line-height: $spacing5
+    }
+  }
 
-h6 {
-  font-size: $h6-font-size;
-  font-weight: $font-regular;
+  &-title3 {
+    font-size: $h3-font-size;
+    font-weight: $font-SemiBold;
+
+    @include breakpoints-down(md) {
+      font-size: $h4-font-size;
+      line-height: $spacing7;
+    }
+
+    @include breakpoints-down(xs) {
+      font-size: $h5-font-size;
+      line-height: $spacing5
+    }
+  }
+
+  &-title4 {
+    font-size: $h4-font-size;
+    font-weight: $font-bold;
+
+    @include breakpoints-down(md) {
+      font-size: $h4-font-size;
+      line-height: $spacing7;
+    }
+
+    @include breakpoints-down(xs) {
+      font-size: $h5-font-size;
+      line-height: $spacing5
+    }
+  }
+
+  &-title5 {
+    font-size: $h5-font-size;
+    font-weight: $font-bold;
+
+    @include breakpoints-down(md) {
+      font-size: $h5-font-size;
+      line-height: $spacing7;
+    }
+
+    @include breakpoints-down(xs) {
+      font-size: $h6-font-size;
+      line-height: 45px;
+    }
+  }
+
+  &-subtitle {
+    font-size: $h6-font-size;
+    font-weight: $font-medium;
+
+    /*    color: #64688c;*/
+    @include breakpoints-down(md) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    @include breakpoints-down(xs) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  &-paragraph {
+    font-weight: $font-regular;
+    font-size: $paragraph;
+    line-height: 25px !important;
+    white-space: break-spaces !important;
+  }
 }
 
 p {
   color: #6F6F87;
   font-size: 1rem;
   line-height: 25px;
-  font-family: $font-family-Josefin;
   font-weight: $font-regular;
 
 }
-a{
+
+a {
   text-decoration: none;
+  font-weight: $font-medium;
 }
 
-.v-chip--label
-{
-  border-radius: 0 !important ;
+.v-chip--label {
+  border-radius: 0 !important;
 }
-.py-20
-{
+
+.py-20 {
   padding-top: 6.25rem !important;
   padding-bottom: 6.25rem !important;
 }
-.pt-20
-{
-  padding-top: 6.25rem !important; ;
+
+.pt-20 {
+  padding-top: 6.25rem !important;
+;
+
+  @include breakpoints-down(md) {
+    padding-top: 5rem !important;
+  ;
+  }
+
+  @include breakpoints-down(xs) {
+    padding-top: 4rem !important;
+  ;
+  }
 }
 
+.pa-20 {
+  padding: 4rem !important;
+;
+
+  @include breakpoints-down(md) {
+    padding: 3rem !important;
+  ;
+  }
+
+  @include breakpoints-down(xs) {
+    padding: 2rem !important;
+  ;
+  }
+}
+
+.v-btn {
+  text-transform: capitalize !important;
+}
+
+.primary {
+  box-shadow: $box-shadow;
+}
+
+.secondary {
+  box-shadow: 5px 2px 18px 0 hsl(28deg 100% 58% / 32%) !important;
+}
 /*--------------------------------------------------
   [2. Theme color   ]
 --------------------------------------------------*/
@@ -181,6 +286,200 @@ a{
   }
 
 }
+/*========== theme light ==========*/
+.theme--light.v-application {
+  .text-color-default {
+    color: #424242;
+    caret-color: #424242;
+  }
+
+  .v-sheet--outlined {
+    border: thin solid #cfcfcf4a !important;
+  }
+
+}
+
+.theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/*--------------------------------------------------
+  [3. Header & Navigation Drawer Settings  ]
+--------------------------------------------------*/
+header.v-toolbar{
+  a.v-btn--active {
+    color: $palette-common-primary !important;
+  }
+  .v-btn,
+  .v-btn.v-btn--icon {
+    color: #fff;
+    letter-spacing: 0;
+    font-weight: bold;
+  }
+  .v-btn:before {
+    background-color: transparent;
+    border-radius: 3px;
+    bottom: unset;
+    color: inherit;
+    content: "";
+    left: 0px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+
+  }
+}
+.nav-menu {
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%) !important;
+  margin-top: 50px;
+}
+header.v-sheet.v-app-bar.v-toolbar.v-app-bar--is-scrolled{
+  -webkit-animation: 1000ms ease-in-out 0s normal none 1 running fadeInDown;
+  animation: 1000ms ease-in-out 0s normal none 1 running fadeInDown;
+
+}
+
+.theme--light {
+  header.v-sheet.v-app-bar.v-toolbar:not(.v-app-bar--is-scrolled){
+    background-color: transparent;
+    box-shadow: none !important;
+    .v-btn{
+      color: #fff;
+    }
+  }
+  header.v-sheet.v-app-bar.v-toolbar.v-app-bar--is-scrolled{
+    box-shadow: 0 3px 3px -1px rgb(10 22 70 / 10%), 0 0 1px 0 rgb(10 22 70 / 6%) !important;
+    background-color: rgb(255 255 255 / 65%);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+}
+.theme--dark {
+  header.v-sheet.v-app-bar.v-toolbar:not(.v-app-bar--is-scrolled){
+    background-color: transparent;
+    box-shadow: none !important;
+  }
+  .v-toolbar.v-app-bar--is-scrolled {
+    background-color: rgba(0, 30, 38, 0.8) !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    transition: $transition;
+
+    .v-btn,
+    .v-btn.v-btn--icon {
+      color: #fff;
+      letter-spacing: 0;
+      font-weight: bold;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+aside.v-navigation-drawer{
+  transition: all 0.8s cubic-bezier(0.77, 0.2, 0.05, 1) !important;
+
+  .close-icon:hover .v-icon {
+    transition: 0.70s;
+    transform: rotate(180deg);
+  }
+}
+
+
+
+.v-toolbar.v-app-bar--is-scrolled {
+
+  .v-btn,
+  .v-btn.v-btn--icon {
+    color: #0000008a;
+    letter-spacing: 0;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.v-application.theme--dark .v-sheet.v-card,
+.v-application.theme--dark .v-select-list,
+.v-application.theme--dark .nav-menu .theme--dark.v-list {
+
+  box-shadow: none !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.v-overlay:hover {
+  cursor: url(../static/images/cross.png), auto;
+}
+
+/*--------------------------------------------------
+  [4. Mobile Bar Settings  ]
+--------------------------------------------------*/
+.v-bottom-navigation {
+  color: #fff !important;
+  border-radius: 50px;
+  transform: translate(25px, -20px) !important;
+  width: 90% !important;
+  padding: 10px !important;
+
+  span.v-btn__content {
+    color: #fff;
+  }
+}
+
+.container .bottombar #t1:checked~#back::after {
+  transform: translate(75px, 0);
+}
+
+.v-item-group.v-bottom-navigation--fixed {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px 15px;
+  box-shadow: 0px 20px 40px rgb(18 34 64 / 10%);
+}
+
+.v-item-group.v-bottom-navigation--shift .v-btn .v-btn__content>*:not(.v-icon) {
+  top: calc(100% - 5px) !important;
+}
+
+.v-item-group.v-bottom-navigation .v-btn.v-btn--active {
+  .v-btn__content {
+    background: #07aeaf;
+    position: absolute;
+    top: -65px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: -28px;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border-radius: 50%;
+      box-shadow: 15px 18px #07aeaf;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      right: -28px;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border-radius: 50%;
+      box-shadow: -15px 18px #07aeaf;
+    }
+  }
+}
+
+
 
 /* ===== skeleton  ===== */
 .theme--dark.v-skeleton-loader .v-skeleton-loader__actions,
@@ -226,30 +525,41 @@ background: #012a35 !important;
 --------------------------------------------------*/
 
 .breadcrumb {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url(https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/09/breadcrumb1.jpg);
-  background-size: cover;
-  min-height: 240px;
-  display: flex;
-  align-items: center;
-
-  .col-full {
-    max-width: 1320px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+  background: $palette-common-primary;
+  padding: 120px 0;
+  position: relative;
+  width: 100%;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.5) 90%);
+  }
+  .breadcrumb-bg {
+    position: absolute;
+    bottom: 0;
+    top: 20%;
+    opacity: 0.6;
+    left: 0;
+    right: 0;
+    background-image: url(#{$breadcrumbPath}/breadcrumb.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
   }
 
   .breadcrumb-heading {
     color: #1E1D23;
-    max-width: 850px;
-    padding: 0 15px;
     font-size: 52px;
+    text-align: center;
     margin-bottom: 10px;
     text-transform: capitalize;
   }
+
   .breadcrumb-separator {
     color: #1E1D23;
   }
@@ -258,13 +568,10 @@ background: #012a35 !important;
     content: '';
     display: table;
   }
-
   .woocommerce-breadcrumb {
     text-align: center;
   }
 }
-
-
 
 /*====================
   widget
@@ -273,32 +580,36 @@ background: #012a35 !important;
   display: block;
   overflow: hidden;
   position: relative;
+
   h2 {
     font-size: 20px;
     font-weight: 600;
     display: inline-block;
     letter-spacing: -1px;
   }
+
   span {
     height: 4px;
     width: 30px;
     display: inline-block;
-    background: #eb8215;
+    background: $palette-common-primary;
     position: relative;
-    margin-left: 10px;
+    @include left(10px);
     top: -4px;
-    &:before{
+
+    &:before {
       content: "";
       position: absolute;
-      right: -8px;
+      @include right(-8px);
       top: 0;
       height: 4px;
       width: 4px;
-      background: #eb8215;
+      background: $palette-common-primary;
     }
   }
 
 }
+
 
 /*--------------------------------------------------
   [2. Blog Post Page ]

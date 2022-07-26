@@ -40,21 +40,22 @@
                   <h2>Categories</h2>
                   <span></span>
                 </div>
+
                 <v-chip
                   class="ma-2 white--text"
                   color="primary"
                   label
-                  link
-                  v-for="(c, i) in categories"
-                  :key="`category${i}`"
+                  v-for="tag of tags"
+                  :key="tag.slug"
                 >
-
-                  <v-icon left text-color="white">
-                    mdi-label
-                  </v-icon>
-                  {{ c.name }}
-
+                  <NuxtLink :to="`/products/tag/${tag.slug}`" class="white--text">
+                    <v-icon left text-color="white">
+                      mdi-label
+                    </v-icon>
+                    {{ tag.name }}
+                  </NuxtLink>
                 </v-chip>
+
 
               </v-list>
 
@@ -72,18 +73,19 @@
 
         <v-col cols="12" md="8">
           <v-row>
-            <template v-for="(p, i) in filteredProducts">
-              <v-fade-transition :key="`product${p.id}-${i}`">
+            <template v-for="(product, i) in filteredProducts">
+              <v-fade-transition :key="`product${product.id}-${i}`">
                 <v-col cols="12" md="6">
                   <v-card
                     outlined
                     elevation-0
                     nuxt
-                    :to="`/products/${p.id}`"
                     class="el"
                   >
-                    <v-img  :src="require(`~/static/images/shop/${p.image}`)"  height="300">
-                      <template #placeholder>
+
+                    <nuxt-link :to="`/products/${product.id}`">
+                    <v-img  :src="require(`~/static/images/shop/${product.image}`)"  height="300">
+                      <template slot="placeholder">
                         <v-row
                           class="fill-height"
                           justify="center"
@@ -98,11 +100,10 @@
                         </v-row>
                       </template>
                     </v-img>
-                    <v-card-title class="text-md-body-1 font-weight-bold">{{
-                      p.name
-                    }}</v-card-title>
+                    </nuxt-link>
+                    <v-card-title class="text-md-body-1 font-weight-bold">{{product.name}}</v-card-title>
                     <v-card-subtitle class="primary--text pb-3">
-                      ${{ p.price }}
+                      ${{ product.price }}
                     </v-card-subtitle>
                     <v-card-text>
                       <v-chip
@@ -110,13 +111,21 @@
                         label
                         outlined
                         class="mr-1"
-                        v-for="(t, i) in p.tags"
-                        :key="`prod${p.id}-${i}`"
+                        v-for="(t, i) in product.tags"
+                        :key="`prod${product.id}-${i}`"
                       >
                         {{ t }}
                       </v-chip>
                     </v-card-text>
-
+                    <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
+                      <v-btn
+                        @click="$store.commit('cart/AddToCart', product)"
+                        class="ma-2 text-capitalize rounded-0 order-btn"
+                        color="primary"
+                        large
+                      >
+                        <v-icon left>mdi-shopping-outline</v-icon>Add To Cart</v-btn>
+                    </v-card-actions>
                   </v-card>
                 </v-col>
               </v-fade-transition>
@@ -139,9 +148,27 @@ export default {
       title: this.PageTitle,
     }
   },
-  async created() {
-    this.products = await this.$content("products").fetch();
-    this.categories = await this.$content("category").fetch();
+  async asyncData({ $content, params }) {
+    const products = await $content('products')
+      /*.only(['title', 'description', 'img', 'tags', 'slug', 'author'])*/ // لعرض بعض البيانات الخاصه بالمقالة
+      /* .where({ tags: { $containsAny: ['burger'] } }) */ // استدعاء وعرض مجموعة من المقالات باستخدام التصنيف
+      .sortBy('createdAt', 'desc')
+      .limit(10)
+      /*.limit(5)*/ // استدعاء اخر 5 مقالات
+      .fetch()
+
+    const nextPage = products.length === 10
+    const articles = nextPage ? products.slice(0, -1) : products
+    const tags = await $content('tags')
+      .only(['name', 'description', 'img', 'slug'])
+      .fetch()
+    return {
+      products,
+      tags,
+      PageTitle: 'Our Blog',
+      page: 1,
+      nextPage,
+    }
   },
   data() {
     return {
@@ -154,12 +181,12 @@ export default {
   computed: {
     filteredProducts() {
       if (!this.products || !this.search) return this.products;
-      return this.products.filter((p) => {
+      return this.products.filter((product) => {
         const s = this.search.toLowerCase();
-        const n = p.name.toLowerCase();
-        const price = p.price.toString();
-        const sprice = p.salePrice?.toString() || "";
-        const r = p.ratings.toString();
+        const n = product.name.toLowerCase();
+        const price = product.price.toString();
+        const sprice = product.salePrice?.toString() || "";
+        const r = product.ratings.toString();
         return (
           n.includes(s) ||
           price.includes(s) ||

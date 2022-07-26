@@ -1,13 +1,17 @@
 <template>
   <div class="contact-wrap">
     <div class="breadcrumb">
+      <v-container>
       <div class="col-full">
         <h1 class="breadcrumb-heading">{{PageTitle}}</h1>
         <nav class="woocommerce-breadcrumb">
           <nuxt-link to="/">Home</nuxt-link>
           <span class="breadcrumb-separator dark"> / {{PageTitle}}</span></nav>
       </div>
+      </v-container>
+      <div class="breadcrumb-bg"></div>
     </div>
+
 
     <div class="inner d-flex align-center justify-center py-20">
       <v-container>
@@ -16,7 +20,7 @@
           <v-col cols="12" lg="3" md="6"
              v-for="(contact, index) in contacts"
              :key="index">
-         
+
               <u-animate
                 name="fadeInRightBig"
                 :delay="(0.4 * index) + 's'"
@@ -50,10 +54,10 @@
             </v-card>
             </v-hover>
               </u-animate>
-        
 
-        
-      
+
+
+
           </v-col>
 
           <v-col cols="12" md="12" class="pt-20 mb-16">
@@ -173,7 +177,7 @@ export default {
     background: #ff8e28;
     color: #fff !important;
     transition: all 0.5s ease-in-out;
-  
+
 }
   &:hover .v-avatar
   {
