@@ -148,7 +148,7 @@ export default {
       /* .where({ tags: { $containsAny: ['burger'] } }) */ // استدعاء وعرض مجموعة من المقالات باستخدام التصنيف
       .sortBy('createdAt', 'desc')
       .limit(5)
-      /*.limit(5)*/ // استدعاء اخر 5 مقالات
+     y 
       .fetch()
 
     const nextPage = tenArticles.length === 5
