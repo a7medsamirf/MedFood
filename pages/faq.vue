@@ -14,7 +14,7 @@
         <v-row class="spacing6">
           <v-col md="6" cols="12">
             <h4
-              class="use-text-default use-text-title2 mb-3"
+              class="use-text-primary use-text-title2 mb-3"
             >
               Frequently Answers and Questions
 

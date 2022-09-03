@@ -1,31 +1,31 @@
 <template>
   <v-fade-transition mode="out-in">
-    <v-tooltip v-if="!$vuetify.theme.dark" bottom>
-      <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on" fab @click="toggle_dark_mode">
-          <v-icon size="20" >mdi-weather-night</v-icon>
-        </v-btn>
-      </template>
-      <span>Dark Mode On</span>
-    </v-tooltip>
 
-    <v-tooltip v-else bottom>
-      <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on"  fab @click="toggle_dark_mode">
-         <v-icon size="20" color="yellow">mdi-white-balance-sunny</v-icon>
-        </v-btn>
-      </template>
-      <span>Dark Mode Off</span>
-    </v-tooltip>
+           <v-btn icon>
+        <v-icon
+          size="20"
+          :key="$vuetify.theme.dark"
+          :color="$vuetify.theme.dark ? 'primary' : 'dark'"
+          @click="toggle_dark_mode"
+        >
+          {{ $vuetify.theme.dark ? icons.mdiWhiteBalanceSunny : icons.mdiWeatherNight  }}
+        </v-icon>
+      </v-btn>
 
   </v-fade-transition>
 </template>
 
 <script>
+import { mdiWeatherNight, mdiWhiteBalanceSunny } from '@mdi/js'
+
 export default {
   name: "ThemeSwitcher",
   data () {
     return {
+      icons: {
+        mdiWeatherNight,
+        mdiWhiteBalanceSunny,
+      },
 
     }
   },
@@ -38,9 +38,17 @@ export default {
   mounted() {
     const theme = localStorage.getItem("dark_theme");
     if (theme) {
-      this.$vuetify.theme.dark = theme === "true";
+      if (theme == "true") {
+        this.$vuetify.theme.dark = true;
+      } else {
+        this.$vuetify.theme.dark = false;
+      }
     }
   },
 }
 </script>
 
+
+<style scoped>
+
+</style>

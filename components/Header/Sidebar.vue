@@ -8,7 +8,7 @@
           v-if="!link.subLinks"
           :to="link.to"
            active-class="primary--text "
-
+          
         >
           <v-list-item-icon>
             <v-icon>{{ link.icon }}</v-icon>
@@ -82,3 +82,6 @@ export default {
 
 }
 </script>
+<style scoped lang="scss">
+@import './Header.scss';
+</style>

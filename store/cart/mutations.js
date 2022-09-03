@@ -23,7 +23,7 @@ export default {
 
   AddToCart(state, product) {
     //Check if item is in cart
-    let itemfound = state.cart.find((product) => product.product.id === product.id);
+    let itemfound = state.cart.find((p) => p.product.id === product.id);
     if (!itemfound) {
       state.cart.push({ product, quantity: 1 });
     }

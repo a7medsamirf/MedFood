@@ -21,7 +21,7 @@
             <div class="sb-badge">
               <v-chip
                 class="ma-2 white--text rounded-0"
-                color="default "
+                color="primary "
                 label
                 v-for="(tag, i) in product.tags"
                 :key="`prod${product.id}-${i}`"
@@ -41,7 +41,7 @@
               <v-spacer></v-spacer>
             <v-card-title class="py-2 pa-0 font-weight-bold text-color-default">
               <h3>{{ product.name }}</h3>
-
+              
               <v-spacer></v-spacer>
             </v-card-title>
                 <v-rating
@@ -62,7 +62,9 @@
             </p>
             <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
               <v-btn
-                @click="$store.commit('cart/AddToCart', product)"
+                :loading="loading"
+                :disabled="loading"
+                @click="$store.commit('cart/AddToCart', product); loader = 'loading' "
                 class="ma-2 text-capitalize rounded-0 order-btn"
                 color="primary"
                 large
@@ -94,14 +96,6 @@
   </div>
 </template>
 
-<v-btn
-  @click="$store.commit('cart/AddToCart', product)"
-  class="ma-2 text-capitalize rounded-0 order-btn"
-  color="primary"
-  large
->
-<v-icon left>mdi-shopping-outline</v-icon>Add To Cart</v-btn>
-
 <script>
 import Description from '~/components/products/Description.vue';
 import Support from '~/components/products/Support.vue';
@@ -117,9 +111,20 @@ export default {
   data() {
     return {
       product: null,
-
+      loader: null,
+      loading: false,
     };
   },
+  watch: {
+  loader () {
+    const l = this.loader
+    this[l] = !this[l]
+
+    setTimeout(() => (this[l] = false), 2000)
+
+    this.loader = null
+  },
+},
 };
 </script>
 
