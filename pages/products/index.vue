@@ -58,6 +58,29 @@
 
               </v-list>
 
+              <v-list v-if="$vuetify.breakpoint.mdAndUp" color="transparent" subheader>
+                <div class="widget-tittle ma-2">
+                  <h2>Tags</h2>
+                  <span></span>
+                </div>
+                <v-chip
+                  class="ma-2 white--text"
+                  color="primary"
+                  label
+                  link
+                  v-for="(t, i) in tags"
+                  :key="`tag${t}`"
+                >
+
+                  <v-icon left text-color="white">
+                    mdi-label
+                  </v-icon>
+                  {{ t.name }}
+
+                </v-chip>
+
+              </v-list>
+
             </div>
 
             <div class="sidebar-widget mb-5">
@@ -106,6 +129,8 @@
                       ${{ p.price }}
                     </v-card-subtitle>
                     <v-card-text>
+
+
                       <v-chip
                         x-small
                         label
@@ -114,17 +139,22 @@
                         v-for="(t, i) in p.tags"
                         :key="`prod${p.id}-${i}`"
                       >
-                        {{ t }}
+                        <NuxtLink :to="`/tag/${t.id}`" class="white--text">
+
+                          {{ t }}
+                        </NuxtLink>
+
+
                       </v-chip>
                     </v-card-text>
                     <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
                       <v-btn
-                      :loading="loading"
-                       :disabled="loading"
-                        @click="$store.commit('cart/AddToCart', p); loader = 'loading' "
-                        class="ma-2 text-capitalize rounded-0 order-btn"
-                        color="primary"
-                        large
+                          :loading="loading"
+                          :disabled="loading"
+                          @click="$store.commit('cart/AddToCart', p); loader = 'loading' "
+                          class="ma-2 text-capitalize rounded-0 order-btn"
+                          color="primary"
+                          large
                       >
                         <v-icon left>mdi-shopping-outline</v-icon>Add To Cart</v-btn>
                     </v-card-actions>
@@ -132,9 +162,6 @@
                 </v-col>
               </v-fade-transition>
             </template>
-
-
-
           </v-row>
         </v-col>
       </v-row>
@@ -154,14 +181,15 @@ export default {
     }
   },
   async created() {
-    this.products = await this.$content("products").fetch();
-    this.categories = await this.$content("category").fetch();
+    this.products = await this.$content('products').fetch();
+    this.categories = await this.$content('categories').fetch()
+    this.tags = await this.$content('tags').fetch()
   },
   data() {
     return {
-      
       PageTitle: 'Shop',
       products: null,
+      tags: null,
       categories: null,
       search: null,
       loader: null,
@@ -172,9 +200,7 @@ export default {
   loader () {
     const l = this.loader
     this[l] = !this[l]
-
     setTimeout(() => (this[l] = false), 3000)
-
     this.loader = null
   },
 },
@@ -199,9 +225,9 @@ export default {
 };
 </script>
 
+<style>
 
-
-<style></style>
+</style>
 
 
 
