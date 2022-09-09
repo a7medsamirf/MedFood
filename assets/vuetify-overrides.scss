@@ -273,7 +273,7 @@ a {
     -webkit-box-orient: vertical;
   }
   .v-btn--is-elevated {
-    box-shadow: 0 2px 51px 0px rgb(255 121 0 / 13%) !important;
+    box-shadow: 0 2px 51px 0px hsl(19deg 100% 50% / 60%) !important;
   }
   .v-navigation-drawer {
     background-color: rgba(0, 30, 38, 0.8) !important;
@@ -517,7 +517,7 @@ background: #012a35 !important;
 }
 
 .v-application {
-  font-family: $font-family-Josefin
+  font-family: $body-font-family
 }
 
 /*--------------------------------------------------

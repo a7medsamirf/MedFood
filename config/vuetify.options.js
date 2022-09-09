@@ -31,7 +31,7 @@ export default {
         surface: "#012a35", // card and all box
         footercolor: '#012a35',
         bggrey: '#001e26',
-        primary: '#ff8e28',
+        primary: '#FE5000',
         secondary: '#424242',
         accent: '#82B1FF',
         error: '#FF5252',
@@ -45,7 +45,7 @@ export default {
         surface: "#ffffff",
         footercolor: '#012a35',
         bggrey: '#faf7f2',
-        primary: '#ff8e28',
+        primary: '#FE5000',
         secondary: '#424242',
         accent: '#82B1FF',
         error: '#FF5252',
@@ -57,7 +57,7 @@ export default {
 
     },
     options: {
-      customProperties: false
+      customProperties: true
     }
   }
 }

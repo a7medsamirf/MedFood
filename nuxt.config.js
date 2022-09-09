@@ -41,6 +41,7 @@ export default {
 
   css: [
     '~/assets/vuetify-overrides.scss',
+    '~/assets/style.scss',
     "@sweetalert2/theme-material-ui",
     '~/assets/vendors/slick-carousel/slick.css',
     '~/assets/vendors/slick-carousel/slick-theme.css'
