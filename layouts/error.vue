@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-main  class="error-area">
-      <v-container fluid fill-height>
+  
         <v-layout align-center justify-center text-center>
           <v-flex xs12 sm8 md4>
             <div class="error-item">
@@ -18,7 +18,7 @@
             </div>
           </v-flex>
         </v-layout>
-      </v-container>
+  
     </v-main>
 
 
@@ -56,6 +56,10 @@ export default {
 {
   background: url(~/static/images/hero-pattern-1.webp) no-repeat;
   background-size: cover ;
+  
+  .layout{
+    height: 100vh;
+  }
   a {
     display: inline-block;
     color: #fff;
@@ -78,10 +82,9 @@ export default {
     -webkit-text-fill-color: transparent;
     display: inline-block;
     font-weight: 700;
-    font-size: 200px;
+    font-size: 300px;
     position: relative;
     letter-spacing: 1px;
-    margin-bottom: 20px;
     font-family: 'Rubik', sans-serif;
   }
 }
