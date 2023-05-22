@@ -92,7 +92,7 @@
           <v-divider class="white--text"></v-divider>
           <div class="text-center inner align-center justify-center py-16" v-if="$store.state.cart.cart.length == 0">
             <v-img class="d-block mx-auto" src="/emptycart.svg" width="500"></v-img>
-            <p>No Items Yet</p>
+            <p>Your cart is empty</p>
           </div>
           <div class="py-3">
           <template v-for="(c, i) in $store.state.cart.cart">

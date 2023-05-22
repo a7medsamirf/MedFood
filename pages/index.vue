@@ -3,8 +3,7 @@
     <hero />
     <Title :head="head" :desc="desc" align="center" color="primary"/>
 
-        
-    <CountUp />
+      
     <welcome />
       <history />
       <why-choose-us />
@@ -22,13 +21,12 @@ import History from '~/components/home/History.vue';
 import Welcome from "~/components/home/Welcome";
 import banner from "~/components/home/banner";
 import WhyChooseUs from '~/components/home/Why-Choose-Us.vue';
-import CountUp from "~/components/home/CountUp.vue";
 import Title from "../components/Title/Title.vue";
 /*import BlogCard from '~/components/blog/Blog-Card.vue';*/
 export default {
   name: "Home",
   loading: true,
-  components: { Welcome, Hero, History, WhyChooseUs, banner, CountUp, Title },
+  components: { Welcome, Hero, History, WhyChooseUs, banner, Title },
   data() {
 
     return {

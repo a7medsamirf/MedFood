@@ -7,9 +7,16 @@
     >
 
       {{ prev.title }}
-
+      <v-img
+                        v-if="article.img"
+                        :src="require(`~/static/images/blog/${prev.img}`)"
+                        :alt="article.alt"
+                        height="250"
+                      ></v-img>
+                      
 
     </NuxtLink>
+    
     <span v-else>&nbsp;</span>
     <NuxtLink
 

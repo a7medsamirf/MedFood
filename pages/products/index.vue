@@ -149,9 +149,9 @@
                     </v-card-text>
                     <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
                       <v-btn
-                          :loading="loading"
-                          :disabled="loading"
-                          @click="$store.commit('cart/AddToCart', p); loader = 'loading' "
+                          :loading="loading&&p.id == product.id"
+                          :disabled="loading&&p.id==product.id"
+                          @click="AddToCart(p)"
                           class="ma-2 text-capitalize rounded-0 order-btn"
                           color="primary"
                           large
@@ -194,6 +194,7 @@ export default {
       search: null,
       loader: null,
       loading: false,
+      product:null
     };
   },
   watch: {
@@ -222,6 +223,16 @@ export default {
       });
     },
   },
+  methods : {
+    AddToCart(prod){
+      this.product = prod;
+      setTimeout(()=>{ 
+        this.$store.commit('cart/AddToCart', prod);
+        this.loading = false;
+      } , 1000);
+      this.loading = true;
+    }
+  }
 };
 </script>
 

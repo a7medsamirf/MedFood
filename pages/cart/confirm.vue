@@ -12,7 +12,7 @@
     <div class="inner align-center justify-center py-16">
     <div class="text-center" v-if="$store.state.cart.cart.length == 0">
       <v-img class="d-block mx-auto" src="/emptycart.svg" width="500"></v-img>
-      <p>No Items Yet</p>
+      <p>Your cart is empty</p>
     </div>
     <v-container v-else>
       <div class="mb-3" v-if="$store.state.cart.cart.length > 0">
