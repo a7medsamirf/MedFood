@@ -35,7 +35,7 @@ export default {
     localStorage.setItem("myCart", JSON.stringify(state.cart));
     CalculateTotal(state); ////////////
     this.$toast.success("Add To Cart", {
-      position: "top-right",
+      position: "bottom-right",
       timeout: 2635,
       closeOnClick: true,
       pauseOnFocusLoss: true,
@@ -49,6 +49,7 @@ export default {
       rtl: false
     });
   },
+  
   DecreaseItemCount(state, index) {
     let item = state.cart[index];
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
@@ -60,7 +61,7 @@ export default {
       item.quantity -= 1;
     }
     this.$toast.success("Cart Updated.", {
-      position: "top-right",
+      position: "bottom-right",
       timeout: 2635,
       closeOnClick: true,
       pauseOnFocusLoss: true,
@@ -74,31 +75,34 @@ export default {
       rtl: false
     });
   },
+
   RemoveCartItem(state, index) {
     state.cart.splice(index, 1);
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
     this.$toast.error("Item Removed.", {
-      position: "top-right",
+      position: "top-center",
       timeout: 2635,
       closeOnClick: true,
       pauseOnFocusLoss: true,
       pauseOnHover: true,
       draggable: true,
       draggablePercent: 0.6,
-      showCloseButtonOnHover: false,
+      showCloseButtonOnHover: true,
       hideProgressBar: true,
       closeButton: "button",
       icon: true,
       rtl: false
     });
+
   },
+
   IncreaseItemCount(state, index) {
     let item = state.cart[index];
     item.quantity += 1;
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
     CalculateTotal(state); ////////////
     this.$toast.success("Cart Updated.", {
-      position: "top-right",
+      position: "bottom-right",
       timeout: 2635,
       closeOnClick: true,
       pauseOnFocusLoss: true,
